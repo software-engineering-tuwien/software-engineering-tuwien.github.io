@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <style>
+    nav a::after {
+      content: " | ";
+    }
+
+    nav a:last-child::after {
+      content: "";
+    }
+
+    .breadcrumb {
+      font-size: 0.85em;
+      margin-bottom: 0;
+    }
+
+    .todo {
+      background: #ffec99;
+      color: #663c00;
+      padding: 0 0.3em;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    tr.release td {
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 3em;
+      font-size: 0.85em;
+    }
+
+    @media (max-width: 500px) {
+      th {
+        display: none;
+      }
+
+      tr, td {
+        display: block;
+      }
+
+      td:nth-child(1):not(:empty) {
+        font-weight: 600;
+        margin-top: 0.5em;
+      }
+
+      td:nth-child(2) {
+        margin-left: 1em;
+        padding-top: 0;
+      }
+
+      td:nth-child(3):not(:empty)::before {
+        content: "Required Reading ";
+        font-weight: 600;
+        display: block;
+      }
+
+      td:nth-child(3) {
+        margin-left: 1em;
+      }
+
+      td ul {
+        padding-left: 2em;
+      }
+    }
+  </style>
+  {% if page.redirect_to %}<meta http-equiv="refresh" content="0; URL={{ page.redirect_to }}">{% endif %}
+  <title>{{ page.title }}</title>
+</head>
+<body>
+{{ content }}
+  <footer>
+    <hr>
+    <p>
+      <a href="/">Software Engineering @ TU Wien</a> &middot;
+      <a href="https://github.com/software-engineering-tuwien/software-engineering-tuwien.github.io">Source on GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>

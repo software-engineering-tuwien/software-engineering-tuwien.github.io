@@ -1,0 +1,343 @@
+---
+layout: course
+course: sep
+semester: 2026W
+lang: de
+edition: WS 2026/27
+title: Software Engineering Projekt WS2026 -- TU Wien
+heading: Software Engineering Projekt (194.148)
+tiss: https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194148&amp;semester=2026W
+tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82789
+email: TODO@se.tuwien.ac.at
+---
+{%- assign c = site.data.courses[page.course][page.semester] -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Vorbesprechung" | first -%}
+    <section id="team">
+      <h2>Team und &Uuml;berblick</h2>
+
+      <p>
+        In dieser Lehrveranstaltung f&uuml;hren Sie im Team ein mittelgro&szlig;es
+        Softwareentwicklungsprojekt durch und wenden dabei das agile Vorgehensmodell
+        <strong>Scrum</strong> durchg&auml;ngig an. Die Lehrveranstaltung gliedert sich in eine
+        <em>Einzelphase</em>, in der Sie ein &Uuml;bungsbeispiel eigenst&auml;ndig l&ouml;sen, und eine
+        <em>Gruppenphase</em>, in der Ihr Team eine Webapplikation mit Spring Boot und Angular entwickelt
+        und den Fortschritt in regelm&auml;&szlig;igen Management Reviews vertritt.
+      </p>
+
+      <dl>
+        <dt>Lehrveranstaltungsnummer</dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} Semesterstunden, {{ c.ects }} ECTS, {{ c.format }}, pr&uuml;fungsimmanent</dd>
+
+        <dt>Unterrichtssprache</dt>
+        <dd>{{ c.language }}</dd>
+
+        <dt>Vortragende</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endfor %}
+          </ul>
+          <span class="todo">TODO</span> nach Professor:innen / Assistent:innen aufteilen
+        </dd>
+
+        <dt>Tutor:innen</dt>
+        <dd><span class="todo">TODO</span> in TISS nicht &ouml;ffentlich gelistet</dd>
+
+        <dt>E-Mail-Adresse der Lehrveranstaltung</dt>
+        <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a> <span class="todo">TODO</span></dd>
+
+        <dt>Vorbesprechung</dt>
+        <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
+
+        <dt>Vorlesungsverzeichnis</dt>
+        <dd><a href="{{ page.tiss }}">Offizieller Eintrag in TISS</a> (194.148, {{ page.edition }})</dd>
+
+        <dt>TUWEL</dt>
+        <dd><a href="{{ page.tuwel }}">TUWEL-Kurs</a> &mdash; Ank&uuml;ndigungen, Unterlagen und Abgaben </dd>
+
+        <dt>Institut</dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute }}</a></dd>
+      </dl>
+
+      <details>
+        <summary>Lernergebnisse</summary>
+        <p>Nach positiver Absolvierung der Lehrveranstaltung sind Studierende in der Lage,</p>
+        <ul>
+          <li>das agile Vorgehensmodell Scrum praxisnah mit allen Aspekten anzuwenden;</li>
+          <li>mit modernen Frameworks zur Entwicklung von Webapplikationen zu arbeiten (Spring Boot, Angular);</li>
+          <li>ein verteiltes Sourcecodemanagementsystem (Git) anzuwenden;</li>
+          <li>mit modernen Softwareentwicklungsumgebungen zu arbeiten (IntelliJ IDEA);</li>
+          <li>moderne Softwarearchitekturen zu verstehen und anzuwenden;</li>
+          <li>Best Practices in gegebenem Kontext einzusetzen;</li>
+          <li>mit gruppendynamischen und sozialen Aspekten erfolgreich umzugehen;</li>
+          <li>Projektergebnisse zielgruppengerecht zu pr&auml;sentieren.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Inhalt</summary>
+        <ul>
+          <li>Anwenden eines praxisrelevanten Vorgehensmodells in der Softwareentwicklung</li>
+          <li>Anwenden von Konzepten und Methoden f&uuml;r die einzelnen Phasen eines Software-Engineering-Projekts</li>
+          <li>Ausw&auml;hlen und Anwenden von Konzepten, Modellen und Werkzeugen im Rahmen eines mittelgro&szlig;en Softwareentwicklungsprojekts</li>
+          <li>Anwenden von Techniken f&uuml;r Abstraktion und Modellbildung in der Softwaretechnik</li>
+          <li>Herstellen und Anpassen von hochwertiger Planung und Dokumentation</li>
+          <li>L&ouml;sen von Software-Engineering-Problemen in einem verteilt arbeitenden Team</li>
+          <li>Verantworten von Entscheidungen einer Rolle in einem Projekt</li>
+          <li>Sammeln und Pflegen von Wissen in einem mittelgro&szlig;en Team</li>
+          <li>Pr&auml;sentieren von Projektergebnissen</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Methoden</summary>
+        <ul>
+          <li>Begleitende Vortr&auml;ge der theoretischen Konzepte und methodischen Grundlagen</li>
+          <li>Auffrischung der Vorkenntnisse in Tutorials</li>
+          <li>Reflexion der eigenen Vorkenntnisse anhand eines &Uuml;bungsbeispieles</li>
+          <li>Durchf&uuml;hrung eines mittelgro&szlig;en Softwareprojektes in einem Team von 4&ndash;6 Personen</li>
+          <li>Intensive Betreuung der Teams durch eine Tutorin oder einen Tutor</li>
+          <li>Intensiver Einsatz entsprechender Tools und Methoden der Softwareentwicklung</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Curricula und verwandte Lehrveranstaltungen</summary>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Studienkennzahl</th>
+              <th scope="col">Verbindlichkeit</th>
+              <th scope="col">Semester</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>033 521 Informatik</td><td>Gebundenes Wahlfach</td><td>4. Semester</td></tr>
+            <tr><td>033 526 Wirtschaftsinformatik</td><td>Pflichtfach</td><td>4. Semester</td></tr>
+            <tr><td>033 532 Medieninformatik und Visual Computing</td><td>Pflichtfach</td><td>4. Semester</td></tr>
+            <tr><td>033 533 Medizinische Informatik</td><td>Pflichtfach</td><td>4. Semester</td></tr>
+            <tr><td>033 534 Software &amp; Information Engineering</td><td>Pflichtfach</td><td>4. Semester</td></tr>
+          </tbody>
+        </table>
+        <p>In allen zugeordneten Curricula erfordert die Lehrveranstaltung die Erf&uuml;llung der STEOP.</p>
+        <p>
+          <strong>Vorausgehende Lehrveranstaltung:</strong> 194.020 VU Software Engineering<br>
+          <strong>Vertiefende Lehrveranstaltungen:</strong>
+          <a href="/ase/">188.910 PR Advanced Software Engineering</a>,
+          180.764 VU Software-Qualit&auml;tssicherung,
+          194.021 VU Advanced Software Engineering
+        </p>
+      </details>
+    </section>
+
+    <section id="registration">
+      <h2>Anmeldung</h2>
+
+      <p>
+        <em>Wichtig!</em> Die Anmeldung zu dieser Lehrveranstaltung erfolgt &uuml;ber
+        <a href="{{ page.tiss }}">TISS</a> im Zeitraum
+        <strong>{{ c.registration.from }}</strong> bis <strong>{{ c.registration.to }}</strong>
+        (strikte Deadline!).
+      </p>
+
+      <p>
+        Alle bis zur Deadline in TISS angemeldeten Studierenden erhalten Zugang zum Kurs in
+        <a href="{{ page.tuwel }}">TUWEL</a>.<br>
+        Eine <strong>Abmeldung ist bis {{ c.registration.deregistration_until }}</strong> m&ouml;glich.
+      </p>
+
+      <section>
+        <h3>Voraussetzungen</h3>
+        <p>
+          <em>Verpflichtende Voraussetzung</em> ist die Studieneingangs- und Orientierungsphase (STEOP).
+          Wir bitten um Verst&auml;ndnis, dass wir hier keine Ausnahmen machen k&ouml;nnen (ausgenommen
+          Austauschstudierende).
+        </p>
+        <p>Dar&uuml;ber hinaus setzen wir voraus:</p>
+        <ul>
+          <li>Objektorientierte Analyse, Design und Programmierung</li>
+          <li>Grundlagen der Unified Modeling Language (UML)</li>
+          <li>Grundkenntnisse aus Algorithmen und Datenstrukturen</li>
+          <li>Grundkenntnisse zu Datenbanksystemen</li>
+          <li>Eine praxisrelevante Programmiersprache und -werkzeuge (z.&nbsp;B. Java oder C++) anwenden</li>
+          <li>Eine integrierte Entwicklungsumgebung und Quellcodeverwaltung anwenden</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="timetable">
+      <h2>Termine</h2>
+
+      <p>
+        Die folgende Tabelle listet alle wichtigen Termine der Lehrveranstaltung auf (Vorbesprechung,
+        Einstiegstest, Tutorentreffen, Management Reviews, Deadlines).
+      </p>
+
+      <p>
+        Ist zu einem Datum eine Deadline angegeben, gilt sie um 23:55 Uhr dieses Tages, sofern nicht
+        anders angegeben.
+      </p>
+
+      <section>
+        <h3>LVA-Termine</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Datum</th>
+              <th scope="col">Inhalt</th>
+              <th scope="col">Ort</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for d in c.dates %}
+            <tr>
+              <td>{{ d.day }} {{ d.date }}<br>{{ d.time }}</td>
+              <td>{{ d.description }}</td>
+              <td>{{ d.room }}</td>
+            </tr>
+            {%- endfor %}
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td colspan="2">Anmelde- und Abmeldeschluss in TISS</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Diese Termine stammen aus TISS und werden von
+          <code>tools/fetch_tiss.py</code> eingelesen (Stand: {{ c.generated_at }}).
+        </p>
+      </section>
+
+      {%- if c.exams %}
+      <section>
+        <h3>Abgabegespr&auml;che</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Datum</th>
+              <th scope="col">Inhalt</th>
+              <th scope="col">Ort</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for e in c.exams %}
+            <tr>
+              <td>{{ e.day }} {{ e.date }}<br>{{ e.time }}</td>
+              <td>{{ e.description }}</td>
+              <td>{{ e.room }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h3>Weitere Meilensteine</h3>
+        <p>
+          <span class="todo">TODO</span> &mdash; die folgenden Termine sind in TISS nicht
+          ver&ouml;ffentlicht und m&uuml;ssen h&auml;ndisch erg&auml;nzt werden.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Datum</th>
+              <th scope="col">Inhalt</th>
+              <th scope="col">Anmerkungen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TODO</td>
+              <td>Einstiegstest</td>
+              <td>Muss positiv absolviert werden</td>
+            </tr>
+            <tr>
+              <td>TODO</td>
+              <td>Abgabe Einzelbeispiel</td>
+              <td>Ende der Einzelphase</td>
+            </tr>
+            <tr>
+              <td>TODO</td>
+              <td>Kickoff-Treffen, Gruppeneinteilung</td>
+              <td>Beginn der Gruppenphase</td>
+            </tr>
+            <tr>
+              <td>TODO</td>
+              <td>Management Review 1&ndash;3</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="assignments">
+      <h2>Aufgaben</h2>
+
+      <p>
+        Die Lehrveranstaltung besteht aus zwei Phasen, die zusammen einen Aufwand von 150 Stunden
+        (6 ECTS) ergeben.
+      </p>
+
+      <h3>Einzelphase (Summe: 40 Stunden)</h3>
+      <p>
+        Sie arbeiten eigenst&auml;ndig: nach der Vorbesprechung absolvieren Sie den Einstiegstest,
+        arbeiten sich in die eingesetzten Technologien ein und implementieren ein Einzelbeispiel.
+      </p>
+      <ul>
+        <li>Vorbesprechung &mdash; 1 Stunde</li>
+        <li>Besuch der Tutorials (optional) &mdash; 5 Stunden</li>
+        <li>Einstiegstest &mdash; 0,5 Stunden</li>
+        <li>Einarbeitung in die eingesetzten Technologien &mdash; 8 Stunden</li>
+        <li>Implementierung Einzelbeispiel &mdash; 30,5 Stunden</li>
+      </ul>
+
+      <h3>Gruppenphase (Summe: 110 Stunden, pro Gruppenmitglied)</h3>
+      <p>
+        Ihr Team entwickelt ein Softwareprojekt nach Scrum, begleitet von einer Tutorin oder einem Tutor,
+        und pr&auml;sentiert den Fortschritt in drei Management Reviews.
+      </p>
+      <ul>
+        <li>Kickoff-Treffen &mdash; 1 Stunde</li>
+        <li>10&times; Treffen mit Tutor &mdash; 10 Stunden</li>
+        <li>3&times; Management Review &mdash; 3 Stunden</li>
+        <li>Gruppeninterne Treffen/Meetings, Projektmanagement &mdash; 22 Stunden</li>
+        <li>Einarbeitung in die Dom&auml;ne &mdash; 7 Stunden</li>
+        <li>Vertiefung in die eingesetzten Technologien &mdash; 7 Stunden</li>
+        <li>Implementierung &mdash; 45 Stunden</li>
+        <li>Qualit&auml;tssicherung / Testen &mdash; 15 Stunden</li>
+      </ul>
+    </section>
+
+    <section id="grading">
+      <h2>Beurteilung</h2>
+
+      <p>
+        Die Beurteilung setzt sich zu <strong>25&nbsp;% aus der Einzelphase</strong> und zu
+        <strong>75&nbsp;% aus der Gruppenphase</strong> zusammen. Die Einzelphase besteht aus dem
+        Einstiegstest und dem L&ouml;sen eines &Uuml;bungsbeispieles. Die Leistungsfeststellung in der
+        Gruppenphase erfolgt im Rahmen von Management Reviews.
+      </p>
+
+      <p>
+        F&uuml;r einen positiven Abschluss der Lehrveranstaltung m&uuml;ssen
+        <strong>beide Phasen jeweils positiv absolviert</strong> werden.
+      </p>
+
+      <p>
+        <strong>Wiederholbarkeit von Teilleistungen:</strong> Da es sich bei den Teilleistungen
+        &bdquo;Einzelphase&ldquo; und &bdquo;Gruppenphase&ldquo; um Teilleistungen handelt, die
+        l&auml;ngerfristig zu erf&uuml;llen sind (Implementierung des Einzelbeispiels, Ausarbeitung des
+        Gruppenprojekts), gibt es f&uuml;r diese Teilleistungen <em>keine Wiederholungsm&ouml;glichkeit</em>.
+      </p>
+
+      <p>Der Pr&uuml;fungsmodus ist <strong>pr&uuml;fungsimmanent</strong>.</p>
+
+      <h3>Notenschl&uuml;ssel</h3>
+      <p>
+        <span class="todo">TODO</span> Der Notenschl&uuml;ssel ist in TISS nicht ver&ouml;ffentlicht &mdash;
+        bitte den in dieser Lehrveranstaltung verwendeten Schl&uuml;ssel eintragen.
+      </p>
+    </section>
