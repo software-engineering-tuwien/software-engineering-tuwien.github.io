@@ -45,18 +45,17 @@ Styling is [water.css](https://watercss.kognise.dev/) loaded from a CDN &mdash; 
 classless, so semantic HTML renders well without any classes. Course-specific CSS
 (nav separators, the mobile table collapse) lives in `_layouts/base.html`.
 
-## Refreshing course data from TISS
+## Bootstrapping course data from TISS
 
-Teaching staff, registration periods and dates are pulled from TISS by a script and
-written to `_data/courses/<course>/<semester>.yml`, which the pages read as
-`site.data.courses[page.course][page.semester]`:
+Teaching staff, registration periods, and dates can be pulled from TISS by a script to avoid duplicate effort. The script is intended to be run just once to generate the initial data YAML file `_data/courses/<course>/<semester>.yml`, which the pages read as `site.data.courses[page.course][page.semester]`:
 
 ```bash
 python3 tools/fetch_tiss.py 2026W
 ```
 
-Add `--course sep` (or `ase`) to do just one. Re-run it whenever TISS changes; the
-generated files are not edited by hand. Everything else on the pages is hand-written.
+Add `--course sep` (or `ase`) to do just one.
+
+Once generated, the YAML file is explicitly intended to be modified and changed by hand to fill in details or make course-specific adjustments. Everything else on the pages is hand-written.
 
 ## Adding a new edition
 
