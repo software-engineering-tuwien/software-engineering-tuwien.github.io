@@ -131,7 +131,7 @@ def parse_staff(page):
             continue
         # TISS renders "Surname, Given" -- flip to reading order for the page.
         display = " ".join(p.strip() for p in reversed(label.split(","))).strip()
-        people.append({"name": display, "sorted": label, "url": html.unescape(href)})
+        people.append({"name": display, "sorted": label, "url": html.unescape(href), "role": "assistant"})
     if not people:
         raise TissError("'Lecturers' section contained no people")
     return people

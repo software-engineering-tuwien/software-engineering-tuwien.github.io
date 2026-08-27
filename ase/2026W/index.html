@@ -25,18 +25,40 @@ email: TODO@se.tuwien.ac.at
         <dt>Course number</dt>
         <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, on-site, continuous assessment</dd>
 
+        <dt>Course lead</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- if person.role == "lead" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
         <dt>Lecturers</dt>
         <dd>
           <ul>
             {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "staff" %}
             <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
             {%- endfor %}
           </ul>
-          <span class="todo">TODO</span> split into professors / assistants
         </dd>
 
-        <dt>Tutors</dt>
-        <dd><span class="todo">TODO</span> not listed publicly in TISS</dd>
+        <dt>Assistants</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "assistant" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
 
         <dt>Course email</dt>
         <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a> <span class="todo">TODO</span></dd>
