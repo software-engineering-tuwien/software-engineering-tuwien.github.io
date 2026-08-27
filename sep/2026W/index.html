@@ -2,7 +2,6 @@
 layout: course
 course: sep
 semester: 2026W
-lang: de
 edition: WS 2026/27
 title: Software Engineering Projekt WS2026 -- TU Wien
 heading: Software Engineering Projekt (194.148)
@@ -13,180 +12,174 @@ email: TODO@se.tuwien.ac.at
 {%- assign c = site.data.courses[page.course][page.semester] -%}
 {%- assign vorbesprechung = c.dates | where: "description", "Vorbesprechung" | first -%}
     <section id="team">
-      <h2>Team und &Uuml;berblick</h2>
+      <h2>Team and Overview</h2>
 
       <p>
-        In dieser Lehrveranstaltung f&uuml;hren Sie im Team ein mittelgro&szlig;es
-        Softwareentwicklungsprojekt durch und wenden dabei das agile Vorgehensmodell
-        <strong>Scrum</strong> durchg&auml;ngig an. Die Lehrveranstaltung gliedert sich in eine
-        <em>Einzelphase</em>, in der Sie ein &Uuml;bungsbeispiel eigenst&auml;ndig l&ouml;sen, und eine
-        <em>Gruppenphase</em>, in der Ihr Team eine Webapplikation mit Spring Boot und Angular entwickelt
-        und den Fortschritt in regelm&auml;&szlig;igen Management Reviews vertritt.
+        In this course you carry out a medium-sized software development project in a team, consistently
+        applying the agile development process <strong>Scrum</strong>. The course is divided into an
+        <em>individual phase</em>, in which you solve an exercise example independently, and a
+        <em>group phase</em>, in which your team develops a web application with Spring Boot and Angular
+        and presents progress in regular Management Reviews.
       </p>
 
       <dl>
-        <dt>Lehrveranstaltungsnummer</dt>
-        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} Semesterstunden, {{ c.ects }} ECTS, {{ c.format }}, pr&uuml;fungsimmanent</dd>
+        <dt>Course number</dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, {{ c.format }}, continuous assessment</dd>
 
-        <dt>Unterrichtssprache</dt>
-        <dd>{{ c.language }}</dd>
-
-        <dt>Vortragende</dt>
+        <dt>Lecturers</dt>
         <dd>
           <ul>
             {%- for person in c.staff %}
             <li><a href="{{ person.url }}">{{ person.name }}</a></li>
             {%- endfor %}
           </ul>
-          <span class="todo">TODO</span> nach Professor:innen / Assistent:innen aufteilen
+          <span class="todo">TODO</span> split into professors / assistants
         </dd>
 
-        <dt>Tutor:innen</dt>
-        <dd><span class="todo">TODO</span> in TISS nicht &ouml;ffentlich gelistet</dd>
+        <dt>Tutors</dt>
+        <dd><span class="todo">TODO</span> not listed publicly in TISS</dd>
 
-        <dt>E-Mail-Adresse der Lehrveranstaltung</dt>
+        <dt>Course email</dt>
         <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a> <span class="todo">TODO</span></dd>
 
-        <dt>Vorbesprechung</dt>
+        <dt>Preliminary discussion</dt>
         <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
 
-        <dt>Vorlesungsverzeichnis</dt>
-        <dd><a href="{{ page.tiss }}">Offizieller Eintrag in TISS</a> (194.148, {{ page.edition }})</dd>
+        <dt>Course catalog</dt>
+        <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (194.148, {{ page.edition }})</dd>
 
         <dt>TUWEL</dt>
-        <dd><a href="{{ page.tuwel }}">TUWEL-Kurs</a> &mdash; Ank&uuml;ndigungen, Unterlagen und Abgaben </dd>
+        <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
 
-        <dt>Institut</dt>
-        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute }}</a></dd>
+        <dt>Institute</dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
       </dl>
 
       <details>
-        <summary>Lernergebnisse</summary>
-        <p>Nach positiver Absolvierung der Lehrveranstaltung sind Studierende in der Lage,</p>
+        <summary>Learning outcomes</summary>
+        <p>After successful completion of the course, students are able to</p>
         <ul>
-          <li>das agile Vorgehensmodell Scrum praxisnah mit allen Aspekten anzuwenden;</li>
-          <li>mit modernen Frameworks zur Entwicklung von Webapplikationen zu arbeiten (Spring Boot, Angular);</li>
-          <li>ein verteiltes Sourcecodemanagementsystem (Git) anzuwenden;</li>
-          <li>mit modernen Softwareentwicklungsumgebungen zu arbeiten (IntelliJ IDEA);</li>
-          <li>moderne Softwarearchitekturen zu verstehen und anzuwenden;</li>
-          <li>Best Practices in gegebenem Kontext einzusetzen;</li>
-          <li>mit gruppendynamischen und sozialen Aspekten erfolgreich umzugehen;</li>
-          <li>Projektergebnisse zielgruppengerecht zu pr&auml;sentieren.</li>
+          <li>use the agile software development process Scrum practice-oriented with all aspects;</li>
+          <li>work with modern frameworks for the development of web applications (Spring Boot, Angular);</li>
+          <li>use a distributed source code management system (Git);</li>
+          <li>work with modern software development environments (IntelliJ IDEA);</li>
+          <li>understand and apply modern software architectures;</li>
+          <li>use best practices in a given context;</li>
+          <li>deal successfully with group dynamic and social aspects;</li>
+          <li>present project results in a target-group oriented way.</li>
         </ul>
       </details>
 
       <details>
-        <summary>Inhalt</summary>
+        <summary>Subject of course</summary>
         <ul>
-          <li>Anwenden eines praxisrelevanten Vorgehensmodells in der Softwareentwicklung</li>
-          <li>Anwenden von Konzepten und Methoden f&uuml;r die einzelnen Phasen eines Software-Engineering-Projekts</li>
-          <li>Ausw&auml;hlen und Anwenden von Konzepten, Modellen und Werkzeugen im Rahmen eines mittelgro&szlig;en Softwareentwicklungsprojekts</li>
-          <li>Anwenden von Techniken f&uuml;r Abstraktion und Modellbildung in der Softwaretechnik</li>
-          <li>Herstellen und Anpassen von hochwertiger Planung und Dokumentation</li>
-          <li>L&ouml;sen von Software-Engineering-Problemen in einem verteilt arbeitenden Team</li>
-          <li>Verantworten von Entscheidungen einer Rolle in einem Projekt</li>
-          <li>Sammeln und Pflegen von Wissen in einem mittelgro&szlig;en Team</li>
-          <li>Pr&auml;sentieren von Projektergebnissen</li>
+          <li>Using a practice-oriented development process model in software development</li>
+          <li>Applying concepts and methods for the individual phases of a software engineering project</li>
+          <li>Selecting and applying concepts, models and tools within a medium-sized software development project</li>
+          <li>Applying techniques for abstraction and modelling in software engineering</li>
+          <li>Creating and adapting high-quality planning and documentation</li>
+          <li>Solving software engineering problems in a distributed team</li>
+          <li>Being responsible for decisions of a role in a project</li>
+          <li>Collecting and maintaining knowledge in a medium-sized team</li>
+          <li>Presenting project results</li>
         </ul>
       </details>
 
       <details>
-        <summary>Methoden</summary>
+        <summary>Teaching methods</summary>
         <ul>
-          <li>Begleitende Vortr&auml;ge der theoretischen Konzepte und methodischen Grundlagen</li>
-          <li>Auffrischung der Vorkenntnisse in Tutorials</li>
-          <li>Reflexion der eigenen Vorkenntnisse anhand eines &Uuml;bungsbeispieles</li>
-          <li>Durchf&uuml;hrung eines mittelgro&szlig;en Softwareprojektes in einem Team von 4&ndash;6 Personen</li>
-          <li>Intensive Betreuung der Teams durch eine Tutorin oder einen Tutor</li>
-          <li>Intensiver Einsatz entsprechender Tools und Methoden der Softwareentwicklung</li>
+          <li>Accompanying lectures on theoretical concepts and methodological basics</li>
+          <li>Refreshing previous knowledge in tutorials</li>
+          <li>Reflection of one's own previous knowledge on the basis of an exercise example</li>
+          <li>Implementation of a medium-sized software project in a team of 4&ndash;6 persons</li>
+          <li>Intensive supervision of the teams by a tutor</li>
+          <li>Intensive use of appropriate software development tools and methods</li>
         </ul>
       </details>
 
       <details>
-        <summary>Curricula und verwandte Lehrveranstaltungen</summary>
+        <summary>Curricula and related courses</summary>
         <table>
           <thead>
             <tr>
-              <th scope="col">Studienkennzahl</th>
-              <th scope="col">Verbindlichkeit</th>
+              <th scope="col">Study code</th>
+              <th scope="col">Obligation</th>
               <th scope="col">Semester</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>033 521 Informatik</td><td>Gebundenes Wahlfach</td><td>4. Semester</td></tr>
-            <tr><td>033 526 Wirtschaftsinformatik</td><td>Pflichtfach</td><td>4. Semester</td></tr>
-            <tr><td>033 532 Medieninformatik und Visual Computing</td><td>Pflichtfach</td><td>4. Semester</td></tr>
-            <tr><td>033 533 Medizinische Informatik</td><td>Pflichtfach</td><td>4. Semester</td></tr>
-            <tr><td>033 534 Software &amp; Information Engineering</td><td>Pflichtfach</td><td>4. Semester</td></tr>
+            <tr><td>033 521 Informatics</td><td>Mandatory elective</td><td>4th semester</td></tr>
+            <tr><td>033 526 Business Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 532 Media Informatics and Visual Computing</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 533 Medical Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 534 Software &amp; Information Engineering</td><td>Mandatory</td><td>4th semester</td></tr>
           </tbody>
         </table>
-        <p>In allen zugeordneten Curricula erfordert die Lehrveranstaltung die Erf&uuml;llung der STEOP.</p>
+        <p>In all assigned curricula the course requires the completion of the introductory and orientation phase (STEOP).</p>
         <p>
-          <strong>Vorausgehende Lehrveranstaltung:</strong> 194.020 VU Software Engineering<br>
-          <strong>Vertiefende Lehrveranstaltungen:</strong>
+          <strong>Preceding course:</strong> 194.020 VU Software Engineering<br>
+          <strong>Continuative courses:</strong>
           <a href="/ase/">188.910 PR Advanced Software Engineering</a>,
-          180.764 VU Software-Qualit&auml;tssicherung,
+          180.764 VU Software Quality Assurance,
           194.021 VU Advanced Software Engineering
         </p>
       </details>
     </section>
 
     <section id="registration">
-      <h2>Anmeldung</h2>
+      <h2>Registration</h2>
 
       <p>
-        <em>Wichtig!</em> Die Anmeldung zu dieser Lehrveranstaltung erfolgt &uuml;ber
-        <a href="{{ page.tiss }}">TISS</a> im Zeitraum
-        <strong>{{ c.registration.from }}</strong> bis <strong>{{ c.registration.to }}</strong>
-        (strikte Deadline!).
+        <em>Important!</em> Registration for this course runs through
+        <a href="{{ page.tiss }}">TISS</a>, from
+        <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
+        (strict deadline!).
       </p>
 
       <p>
-        Alle bis zur Deadline in TISS angemeldeten Studierenden erhalten Zugang zum Kurs in
+        All students registered in TISS until the deadline will have access to the course in
         <a href="{{ page.tuwel }}">TUWEL</a>.<br>
-        Eine <strong>Abmeldung ist bis {{ c.registration.deregistration_until }}</strong> m&ouml;glich.
+        <strong>Deregistration is possible until {{ c.registration.deregistration_until }}.</strong>
       </p>
 
       <section>
-        <h3>Voraussetzungen</h3>
+        <h3>Prerequisites</h3>
         <p>
-          <em>Verpflichtende Voraussetzung</em> ist die Studieneingangs- und Orientierungsphase (STEOP).
-          Wir bitten um Verst&auml;ndnis, dass wir hier keine Ausnahmen machen k&ouml;nnen (ausgenommen
-          Austauschstudierende).
+          <em>Mandatory prerequisite</em> is the completion of the introductory and orientation phase (STEOP).
+          We kindly ask for your understanding that we cannot make exceptions here (exchange students excluded).
         </p>
-        <p>Dar&uuml;ber hinaus setzen wir voraus:</p>
+        <p>Furthermore we expect:</p>
         <ul>
-          <li>Objektorientierte Analyse, Design und Programmierung</li>
-          <li>Grundlagen der Unified Modeling Language (UML)</li>
-          <li>Grundkenntnisse aus Algorithmen und Datenstrukturen</li>
-          <li>Grundkenntnisse zu Datenbanksystemen</li>
-          <li>Eine praxisrelevante Programmiersprache und -werkzeuge (z.&nbsp;B. Java oder C++) anwenden</li>
-          <li>Eine integrierte Entwicklungsumgebung und Quellcodeverwaltung anwenden</li>
+          <li>Object-oriented analysis, design and programming</li>
+          <li>Basics of the Unified Modeling Language (UML)</li>
+          <li>Basic knowledge of algorithms and data structures</li>
+          <li>Basic knowledge of database systems</li>
+          <li>Using a practical programming language and tools (e.g. Java or C++)</li>
+          <li>Applying an integrated development environment and source code management</li>
         </ul>
       </section>
     </section>
 
     <section id="timetable">
-      <h2>Termine</h2>
+      <h2>Timetable</h2>
 
       <p>
-        Die folgende Tabelle listet alle wichtigen Termine der Lehrveranstaltung auf (Vorbesprechung,
-        Einstiegstest, Tutorentreffen, Management Reviews, Deadlines).
+        The following table lists all important dates for the course (preliminary discussion,
+        entry test, tutor meetings, Management Reviews, deadlines).
       </p>
 
       <p>
-        Ist zu einem Datum eine Deadline angegeben, gilt sie um 23:55 Uhr dieses Tages, sofern nicht
-        anders angegeben.
+        If a deadline is listed on a certain date, assume it is due at 23:55 that day unless specified otherwise.
       </p>
 
       <section>
-        <h3>LVA-Termine</h3>
+        <h3>Scheduled dates</h3>
         <table>
           <thead>
             <tr>
-              <th scope="col" width="120">Datum</th>
-              <th scope="col">Inhalt</th>
-              <th scope="col">Ort</th>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
             </tr>
           </thead>
           <tbody>
@@ -199,25 +192,25 @@ email: TODO@se.tuwien.ac.at
             {%- endfor %}
             <tr class="release">
               <td>{{ c.registration.to }}</td>
-              <td colspan="2">Anmelde- und Abmeldeschluss in TISS</td>
+              <td colspan="2">Registration and deregistration deadline in TISS</td>
             </tr>
           </tbody>
         </table>
         <p>
-          Diese Termine stammen aus TISS und werden von
-          <code>tools/fetch_tiss.py</code> eingelesen (Stand: {{ c.generated_at }}).
+          These dates come from TISS and are read from the data file generated by
+          <code>tools/fetch_tiss.py</code> (as of {{ c.generated_at }}).
         </p>
       </section>
 
       {%- if c.exams %}
       <section>
-        <h3>Abgabegespr&auml;che</h3>
+        <h3>Examination slots</h3>
         <table>
           <thead>
             <tr>
-              <th scope="col" width="120">Datum</th>
-              <th scope="col">Inhalt</th>
-              <th scope="col">Ort</th>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
             </tr>
           </thead>
           <tbody>
@@ -234,34 +227,34 @@ email: TODO@se.tuwien.ac.at
       {%- endif %}
 
       <section>
-        <h3>Weitere Meilensteine</h3>
+        <h3>Further milestones</h3>
         <p>
-          <span class="todo">TODO</span> &mdash; die folgenden Termine sind in TISS nicht
-          ver&ouml;ffentlicht und m&uuml;ssen h&auml;ndisch erg&auml;nzt werden.
+          <span class="todo">TODO</span> &mdash; the dates below are not published in TISS and have to be
+          filled in by hand.
         </p>
         <table>
           <thead>
             <tr>
-              <th scope="col" width="120">Datum</th>
-              <th scope="col">Inhalt</th>
-              <th scope="col">Anmerkungen</th>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Notes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>TODO</td>
-              <td>Einstiegstest</td>
-              <td>Muss positiv absolviert werden</td>
+              <td>Entry test</td>
+              <td>Must be passed positively</td>
             </tr>
             <tr>
               <td>TODO</td>
-              <td>Abgabe Einzelbeispiel</td>
-              <td>Ende der Einzelphase</td>
+              <td>Submission individual example</td>
+              <td>End of individual phase</td>
             </tr>
             <tr>
               <td>TODO</td>
-              <td>Kickoff-Treffen, Gruppeneinteilung</td>
-              <td>Beginn der Gruppenphase</td>
+              <td>Kickoff meeting, group formation</td>
+              <td>Start of group phase</td>
             </tr>
             <tr>
               <td>TODO</td>
@@ -274,70 +267,68 @@ email: TODO@se.tuwien.ac.at
     </section>
 
     <section id="assignments">
-      <h2>Aufgaben</h2>
+      <h2>Assignments</h2>
 
       <p>
-        Die Lehrveranstaltung besteht aus zwei Phasen, die zusammen einen Aufwand von 150 Stunden
-        (6 ECTS) ergeben.
+        The course consists of two phases that together amount to 150 hours of work (6 ECTS).
       </p>
 
-      <h3>Einzelphase (Summe: 40 Stunden)</h3>
+      <h3>Individual phase (total: 40 hours)</h3>
       <p>
-        Sie arbeiten eigenst&auml;ndig: nach der Vorbesprechung absolvieren Sie den Einstiegstest,
-        arbeiten sich in die eingesetzten Technologien ein und implementieren ein Einzelbeispiel.
+        You work independently: after the preliminary discussion you complete the entry test,
+        familiarise yourself with the technologies used, and implement an individual example.
       </p>
       <ul>
-        <li>Vorbesprechung &mdash; 1 Stunde</li>
-        <li>Besuch der Tutorials (optional) &mdash; 5 Stunden</li>
-        <li>Einstiegstest &mdash; 0,5 Stunden</li>
-        <li>Einarbeitung in die eingesetzten Technologien &mdash; 8 Stunden</li>
-        <li>Implementierung Einzelbeispiel &mdash; 30,5 Stunden</li>
+        <li>Preliminary discussion &mdash; 1 hour</li>
+        <li>Visit to tutorials (optional) &mdash; 5 hours</li>
+        <li>Entry test &mdash; 0.5 hours</li>
+        <li>Familiarisation with the technologies used &mdash; 8 hours</li>
+        <li>Implementation individual example &mdash; 30.5 hours</li>
       </ul>
 
-      <h3>Gruppenphase (Summe: 110 Stunden, pro Gruppenmitglied)</h3>
+      <h3>Group phase (total: 110 hours, per group member)</h3>
       <p>
-        Ihr Team entwickelt ein Softwareprojekt nach Scrum, begleitet von einer Tutorin oder einem Tutor,
-        und pr&auml;sentiert den Fortschritt in drei Management Reviews.
+        Your team develops a software project using Scrum, supervised by a tutor,
+        and presents progress in three Management Reviews.
       </p>
       <ul>
-        <li>Kickoff-Treffen &mdash; 1 Stunde</li>
-        <li>10&times; Treffen mit Tutor &mdash; 10 Stunden</li>
-        <li>3&times; Management Review &mdash; 3 Stunden</li>
-        <li>Gruppeninterne Treffen/Meetings, Projektmanagement &mdash; 22 Stunden</li>
-        <li>Einarbeitung in die Dom&auml;ne &mdash; 7 Stunden</li>
-        <li>Vertiefung in die eingesetzten Technologien &mdash; 7 Stunden</li>
-        <li>Implementierung &mdash; 45 Stunden</li>
-        <li>Qualit&auml;tssicherung / Testen &mdash; 15 Stunden</li>
+        <li>Kickoff meeting &mdash; 1 hour</li>
+        <li>10&times; meeting with tutor &mdash; 10 hours</li>
+        <li>3&times; Management Review &mdash; 3 hours</li>
+        <li>Group-internal meetings, project management &mdash; 22 hours</li>
+        <li>Familiarization with the domain &mdash; 7 hours</li>
+        <li>Deepening in the applied technologies &mdash; 7 hours</li>
+        <li>Implementation &mdash; 45 hours</li>
+        <li>Quality assurance / testing &mdash; 15 hours</li>
       </ul>
     </section>
 
     <section id="grading">
-      <h2>Beurteilung</h2>
+      <h2>Grading</h2>
 
       <p>
-        Die Beurteilung setzt sich zu <strong>25&nbsp;% aus der Einzelphase</strong> und zu
-        <strong>75&nbsp;% aus der Gruppenphase</strong> zusammen. Die Einzelphase besteht aus dem
-        Einstiegstest und dem L&ouml;sen eines &Uuml;bungsbeispieles. Die Leistungsfeststellung in der
-        Gruppenphase erfolgt im Rahmen von Management Reviews.
+        The grading consists of <strong>25&nbsp;% from the individual phase</strong> and
+        <strong>75&nbsp;% from the group phase</strong>. The individual phase consists of an entry test
+        and the solving of an exercise example. The assessment of performance in the group phase takes
+        place within the framework of Management Reviews.
       </p>
 
       <p>
-        F&uuml;r einen positiven Abschluss der Lehrveranstaltung m&uuml;ssen
-        <strong>beide Phasen jeweils positiv absolviert</strong> werden.
+        <strong>Both phases must be completed positively</strong> for a positive completion of the course.
       </p>
 
       <p>
-        <strong>Wiederholbarkeit von Teilleistungen:</strong> Da es sich bei den Teilleistungen
-        &bdquo;Einzelphase&ldquo; und &bdquo;Gruppenphase&ldquo; um Teilleistungen handelt, die
-        l&auml;ngerfristig zu erf&uuml;llen sind (Implementierung des Einzelbeispiels, Ausarbeitung des
-        Gruppenprojekts), gibt es f&uuml;r diese Teilleistungen <em>keine Wiederholungsm&ouml;glichkeit</em>.
+        <strong>Repeatability of partial performances:</strong> Since the &ldquo;individual phase&rdquo;
+        and &ldquo;group phase&rdquo; are partial performances that must be completed over a longer period
+        of time (implementation of the individual example, development of the group project), there is
+        <em>no possibility of repetition</em> for these partial performances.
       </p>
 
-      <p>Der Pr&uuml;fungsmodus ist <strong>pr&uuml;fungsimmanent</strong>.</p>
+      <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
 
-      <h3>Notenschl&uuml;ssel</h3>
+      <h3>Grading scale</h3>
       <p>
-        <span class="todo">TODO</span> Der Notenschl&uuml;ssel ist in TISS nicht ver&ouml;ffentlicht &mdash;
-        bitte den in dieser Lehrveranstaltung verwendeten Schl&uuml;ssel eintragen.
+        <span class="todo">TODO</span> TISS does not publish a grading scale for this course &mdash;
+        fill in the scale used in this course.
       </p>
     </section>

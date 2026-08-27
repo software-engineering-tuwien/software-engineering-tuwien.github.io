@@ -11,7 +11,7 @@ site.data.courses[<slug>][<semester>].
 Two sources are combined, because neither is complete on its own:
 
   * the REST API (https://tiss.tuwien.ac.at/api/course/<nr>-<semester>) for the
-    structured metadata -- title, ECTS, hours, language, TUWEL link;
+    structured metadata -- title, ECTS, hours, TUWEL link;
   * the public course page for teaching staff, dates and registration periods,
     which the API does not expose.
 
@@ -119,9 +119,9 @@ def _rows(section_html):
 
 
 def parse_staff(page):
-    section = _section(page, "Vortragende Personen")
+    section = _section(page, "Lecturers")
     if section is None:
-        raise TissError("no 'Vortragende Personen' heading found")
+        raise TissError("no 'Lecturers' heading found")
     people = []
     for href, label in re.findall(
         r'<a href="([^"]*adressbuch/person/[^"]*)"[^>]*>(.*?)</a>', section, re.S
@@ -133,12 +133,12 @@ def parse_staff(page):
         display = " ".join(p.strip() for p in reversed(label.split(","))).strip()
         people.append({"name": display, "sorted": label, "url": html.unescape(href)})
     if not people:
-        raise TissError("'Vortragende Personen' section contained no people")
+        raise TissError("'Lecturers' section contained no people")
     return people
 
 
 def parse_dates(page):
-    section = _section(page, "LVA Termine")
+    section = _section(page, "Course dates")
     if section is None:
         return []
     dates = []
@@ -157,7 +157,7 @@ def parse_dates(page):
 
 
 def parse_exams(page):
-    section = _section(page, "Prüfungen")
+    section = _section(page, "Exams")
     if section is None:
         return []
     exams = []
@@ -175,14 +175,14 @@ def parse_exams(page):
 
 
 def parse_characteristics(page):
-    """ECTS and delivery format live only in the page's 'Merkmale' block."""
-    section = _section(page, "Merkmale")
+    """ECTS and delivery format live only in the page's 'Properties' block."""
+    section = _section(page, "Properties")
     if section is None:
         return {}
     text = _strip(section)
     out = {}
-    for key, pattern in (("ects", r"ECTS:\s*([\d.,]+)"),
-                         ("format", r"Format der Abhaltung:\s*([A-Za-z\u00c0-\u017f ]+)")):
+    for key, pattern in (("ects", r"Credits:\s*([\d.,]+)"),
+                         ("format", r"Format:\s*([A-Za-z\u00c0-\u017f ]+)")):
         m = re.search(pattern, text)
         if m:
             out[key] = m.group(1).strip()
@@ -190,7 +190,7 @@ def parse_characteristics(page):
 
 
 def parse_registration(page):
-    section = _section(page, "LVA-Anmeldung")
+    section = _section(page, "Course registration")
     if section is None:
         return None
     rows = _rows(section)
@@ -198,7 +198,7 @@ def parse_registration(page):
         return None
     cells = rows[0]
     if len(cells) < 3:
-        raise TissError(f"unexpected LVA-Anmeldung row: {cells!r}")
+        raise TissError(f"unexpected Course Registration row: {cells!r}")
     return {"from": cells[0], "to": cells[1], "deregistration_until": cells[2]}
 
 
@@ -221,8 +221,6 @@ def parse_api(course_nr, semester):
         "title_en": i18n("title", "en"),
         "type": text("courseType"),
         "weekly_hours": text("weeklyHours"),
-        "language": i18n("language", "de"),
-        "language_en": i18n("language", "en"),
         "institute_code": text("instituteCode"),
         "institute": i18n("instituteName", "de"),
         "institute_en": i18n("instituteName", "en"),
@@ -269,7 +267,7 @@ def to_yaml(data, indent=0):
 def build(slug, semester):
     meta = COURSES[slug]
     page_url = (f"{BASE}/course/courseDetails.xhtml"
-                f"?courseNr={meta['nr']}&semester={semester}")
+                f"?courseNr={meta['nr']}&semester={semester}&locale=en")
     page = _handshake_get(page_url)
 
     record = {
