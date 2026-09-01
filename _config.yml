@@ -1,0 +1,17 @@
+# GitHub Pages builds this site server-side on push ("deploy from a branch": main /
+# root; the Pages API calls this build type "legacy"). No Actions workflow, no local
+# build step --
+# committing to main publishes to https://software-engineering-tuwien.github.io/
+#
+# Jekyll is used here only as a templating engine: shared boilerplate lives in
+# _includes/ and _layouts/, everything course-specific is hand-written HTML.
+# Do NOT add a .nojekyll file, it would disable the includes.
+
+title: Software Engineering @ TU Wien
+description: Course websites for Software Engineering Projekt (194.148) and Advanced Software Engineering (188.910).
+url: https://software-engineering-tuwien.github.io
+baseurl: ""
+
+exclude:
+  - README.md
+  - .gitignore

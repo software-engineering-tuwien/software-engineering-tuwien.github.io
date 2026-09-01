@@ -1,0 +1,36 @@
+---
+layout: base
+---
+  <header>
+    <p class="breadcrumb"><a href="/">Software Engineering @ TU Wien</a></p>
+    <h1>{{ page.heading }} &mdash; {{ page.edition }}</h1>
+    <nav>
+      {%- comment -%}
+        Section anchors stay in English so links keep working across languages;
+        only the labels are translated. The last two point at the shared
+        _includes/, which are English on every page.
+      {%- endcomment -%}
+      {%- if page.lang == "de" %}
+      <a href="#team">Team und &Uuml;berblick</a>
+      <a href="#registration">Anmeldung</a>
+      <a href="#timetable">Termine</a>
+      <a href="#assignments">Aufgaben</a>
+      <a href="#grading">Beurteilung</a>
+      {%- else %}
+      <a href="#team">Team and Overview</a>
+      <a href="#registration">Registration</a>
+      <a href="#timetable">Timetable</a>
+      <a href="#assignments">Assignments</a>
+      <a href="#grading">Grading</a>
+      {%- endif %}
+      <a href="#academichonesty">Academic Honesty</a>
+      <a href="#ai-policy">AI Usage Policy</a>
+    </nav>
+  </header>
+  <main>
+{{ content }}
+
+{% include academic-honesty.html %}
+
+{% include ai-policy.html %}
+  </main>

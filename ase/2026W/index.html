@@ -1,0 +1,364 @@
+---
+layout: course
+course: ase
+semester: 2026W
+edition: WS 2026/27
+title: Advanced Software Engineering WS2026 -- TU Wien
+heading: Advanced Software Engineering (188.910)
+tiss: https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188910&amp;semester=2026W
+tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82792
+email: ase-pr@se.tuwien.ac.at
+---
+{%- assign c = site.data.courses[page.course][page.semester] -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Vorbesprechung" | first -%}
+    <section id="team">
+      <h2>Team and Overview</h2>
+
+      <p>
+        In this master's-level project course you develop a larger software system in a team, working with the
+        architectures, tools and automation practices that characterise <em>advanced</em> software systems.
+        Your team proposes its own project, agrees on a project contract, implements it over the semester, and
+        defends its progress in management reviews before presenting the result at the <strong>ASE Day</strong>.
+      </p>
+
+      <dl>
+        <dt>Course number</dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, on-site, continuous assessment</dd>
+
+        <dt>Course lead</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- if person.role == "lead" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Lecturers</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "staff" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Assistants</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "assistant" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Course email</dt>
+        <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd>
+
+        <dt>Preliminary discussion</dt>
+        <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
+
+        <dt>Course catalog</dt>
+        <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (188.910, {{ page.edition }})</dd>
+
+        <dt>TUWEL</dt>
+        <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
+
+        <dt>Institute</dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
+      </dl>
+
+      <details>
+        <summary>Learning outcomes</summary>
+        <p>After successfully completing this course, you are able to</p>
+        <ul>
+          <li>estimate and quantify the properties of large software systems;</li>
+          <li>apply development procedures typical for large software systems;</li>
+          <li>implement and understand architectures of large software systems;</li>
+          <li>apply approaches to developing software for mobile devices;</li>
+          <li>evaluate and select tools and frameworks for specific problems;</li>
+          <li>understand and apply tools and frameworks for large software systems.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Contents</summary>
+        <ul>
+          <li>Characteristics of advanced software systems
+            <ul>
+              <li>System size and complexity</li>
+              <li>System dependability, Quality of Service (QoS)</li>
+              <li>Extended software lifecycle</li>
+              <li>Mission and safety criticality</li>
+            </ul>
+          </li>
+          <li>Software engineering approaches for advanced software systems
+            <ul>
+              <li>Architecture styles, such as component-based software engineering</li>
+              <li>Lifecycle management and documentation</li>
+              <li>Software design patterns</li>
+            </ul>
+          </li>
+          <li>Component-based engineering of complex software systems</li>
+          <li>Automation in developing advanced software systems
+            <ul>
+              <li>Source code management</li>
+              <li>Continuous integration and testing</li>
+              <li>Advanced build management</li>
+              <li>Persistence techniques (e.g. object-relational mapping)</li>
+            </ul>
+          </li>
+          <li>Aspects of enterprise architectures</li>
+          <li>Selected research and industrial topics
+            <ul>
+              <li>Software engineering for mobile devices</li>
+              <li>Migration project case studies</li>
+              <li>Ecosystems for software engineering tools and frameworks</li>
+            </ul>
+          </li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Methods</summary>
+        <ul>
+          <li>Carrying out a medium-sized software project in a team of 4&ndash;6 people</li>
+          <li>Intensive supervision of the teams by a tutor</li>
+          <li>Intensive use of corresponding software development tools and methods</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Curricula and related courses</summary>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Study code</th>
+              <th scope="col">Type</th>
+              <th scope="col">Semester</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>066 937 Software Engineering</td><td>Mandatory</td><td>1st semester</td></tr>
+            <tr><td>066 522 Digital Civil Engineering Science</td><td>Elective</td><td>3rd semester</td></tr>
+            <tr><td>066 926 Business Informatics</td><td>Elective</td><td></td></tr>
+            <tr><td>066 936 Medizinische Informatik</td><td>Elective</td><td></td></tr>
+          </tbody>
+        </table>
+        <p>
+          <strong>Preceding course:</strong> 188.909 PR Software Engineering und Projektmanagement<br>
+          <strong>Accompanying course:</strong> 180.456 VO Advanced Software Engineering
+        </p>
+      </details>
+    </section>
+
+    <section id="registration">
+      <h2>Registration</h2>
+
+      <p>
+        <em>Important!</em> Registration for this course runs through
+        <a href="{{ page.tiss }}">TISS</a>, from
+        <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
+        (strict deadline!).
+      </p>
+
+      <p>
+        All students registered in TISS until the deadline will have access to the course in
+        <a href="{{ page.tuwel }}">TUWEL</a>.<br>
+        <strong>Deregistration is possible until {{ c.registration.deregistration_until }}.</strong>
+      </p>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <p>
+          We expect basic knowledge of software engineering and project management, as taught in the
+          corresponding bachelor's courses &mdash; for example
+          <a href="/sep/">Software Engineering Projekt (194.148)</a>.
+        </p>
+        <p>
+          The necessary qualifications are checked at the beginning of the course by means of an
+          <strong>entry test, which must be passed</strong>.
+        </p>
+      </section>
+    </section>
+
+    <section id="timetable">
+      <h2>Timetable</h2>
+
+      <p>
+        The following timetable lists all important dates for the course (preliminary discussion, entry test,
+        tutor meetings, management reviews, ASE Day).
+      </p>
+
+      <p>
+        If a deadline is listed on a certain date, assume it is due at 23:55 that day unless specified otherwise.
+      </p>
+
+      <section>
+        <h3>Scheduled dates</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for d in c.dates %}
+            <tr>
+              <td>{{ d.day }} {{ d.date }}<br>{{ d.time }}</td>
+              <td>{{ d.description }}</td>
+              <td>{{ d.room }}</td>
+            </tr>
+            {%- endfor %}
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td colspan="2">Registration and deregistration deadline in TISS</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      {%- if c.exams %}
+      <section>
+        <h3>Examination slots</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for e in c.exams %}
+            <tr>
+              <td>{{ e.day }} {{ e.date }}<br>{{ e.time }}</td>
+              <td>{{ e.description }}</td>
+              <td>{{ e.room }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h3>Further milestones</h3>
+        <p>
+          <span class="todo">TODO</span> &mdash; the dates below are not published in TISS and have to be
+          filled in by hand.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TBA</td>
+              <td>Entry test</td>
+              <td>Must be passed to continue</td>
+            </tr>
+            <tr>
+              <td>TBA</td>
+              <td>Retry Entry test</td>
+              <td>Must be passed to continue</td>
+            </tr>
+            <tr>
+              <td>TBA</td>
+              <td>Deadline project proposal</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>TBA</td>
+              <td>Kickoff meeting, project contract</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>19.10.2026 - 23.10.2026</td>
+              <td>Management Review 1</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>07.12.2026 - 11.12.2026</td>
+              <td>Management Review 2</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>18.01.2027 - 22.01.2027</td>
+              <td>Management Review 3</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>TBA</td>
+              <td>ASE Day</td>
+              <td>final presentations</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="assignments">
+      <h2>Assignments</h2>
+
+      <p>
+        The course amounts to 150 hours of work (6 ECTS), distributed roughly as follows.
+      </p>
+
+      <h3>Getting started</h3>
+      <ul>
+        <li>Preliminary discussion &mdash; 1 hour</li>
+        <li>Preparation for the entry test &mdash; 1 hour</li>
+        <li>Entry test &mdash; 4 hours</li>
+        <li>Finding ideas, project proposal, project contract &mdash; 5 hours</li>
+        <li>Kickoff meeting &mdash; 1 hour</li>
+      </ul>
+
+      <h3>Project phase</h3>
+      <ul>
+        <li>12&times; meeting with the tutor &mdash; 12 hours</li>
+        <li>3&times; management review &mdash; 3 hours</li>
+        <li>Preparation for presentations (management reviews, ASE Day) &mdash; 3 hours</li>
+        <li>Group-internal meetings and project management &mdash; 30 hours</li>
+        <li>Familiarisation with the technologies &mdash; 10 hours</li>
+        <li>Implementation &mdash; 60 hours</li>
+        <li>Quality assurance and testing &mdash; 18 hours</li>
+        <li>ASE Day &mdash; 2 hours</li>
+      </ul>
+    </section>
+
+    <section id="grading">
+      <h2>Grading</h2>
+
+      <p>
+        The necessary qualifications are checked at the beginning of the course by means of an entry test,
+        which <strong>must be passed positively</strong>.
+      </p>
+
+      <p>
+        Your performance is then assessed in the framework of <strong>several management reviews</strong>
+        during the project phase.
+      </p>
+
+      <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
+
+      <h3>Grading scale</h3>
+      <p>
+        <span class="todo">TODO</span> TISS does not publish a point breakdown or a point-to-grade mapping for
+        this course &mdash; fill in how the reviews and the final result are weighted, and the grading scale.
+      </p>
+    </section>

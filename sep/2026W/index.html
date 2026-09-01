@@ -1,0 +1,361 @@
+---
+layout: course
+course: sep
+semester: 2026W
+edition: WS 2026/27
+title: Software Engineering Projekt WS2026 -- TU Wien
+heading: Software Engineering Projekt (194.148)
+tiss: https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194148&amp;semester=2026W
+tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82789
+email: se-pr@se.tuwien.ac.at
+---
+{%- assign c = site.data.courses[page.course][page.semester] -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Vorbesprechung" | first -%}
+    <section id="team">
+      <h2>Team and Overview</h2>
+
+      <p>
+        In this course you carry out a medium-sized software development project in a team, consistently
+        applying an agile development process. The course is divided into two phases: 1.) Bootcamp, and 2.) Group phase.
+      </p>
+      <p>
+        During the Bootcamp, you will be working on an individual assignment. In this assignment you will 
+        develop a web application with <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>. 
+        In the group phase you will work in teams of 4-6 students on a software project of your choice where you will be supported by a tutor and will 
+        present your progress in regular <em>Management Reviews</em>.
+      </p>
+
+      <dl>
+        <dt>Course number</dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, {{ c.format }}, continuous assessment</dd>
+
+        <dt>Course lead</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- if person.role == "lead" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Lecturers</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "staff" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Assistants</dt>
+        <dd>
+          <ul>
+            {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "assistant" %}
+            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </dd>
+
+        <dt>Course email</dt>
+        <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd>
+
+        <dt>Preliminary discussion</dt>
+        <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
+
+        <dt>Course catalog</dt>
+        <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (194.148, {{ page.edition }})</dd>
+
+        <dt>TUWEL</dt>
+        <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
+
+        <dt>Institute</dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
+      </dl>
+
+      <details>
+        <summary>Learning outcomes</summary>
+        <p>After successful completion of the course, students are able to</p>
+        <ul>
+          <li>use the agile software development process Scrum practice-oriented with all aspects;</li>
+          <li>work with modern frameworks for the development of web applications (Spring Boot, Angular);</li>
+          <li>use a distributed source code management system (Git);</li>
+          <li>work with modern software development environments (IntelliJ IDEA);</li>
+          <li>understand and apply modern software architectures;</li>
+          <li>use best practices in a given context;</li>
+          <li>deal successfully with group dynamic and social aspects;</li>
+          <li>present project results in a target-group oriented way.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Subject of course</summary>
+        <ul>
+          <li>Using a practice-oriented development process model in software development</li>
+          <li>Applying concepts and methods for the individual phases of a software engineering project</li>
+          <li>Selecting and applying concepts, models and tools within a medium-sized software development project</li>
+          <li>Applying techniques for abstraction and modelling in software engineering</li>
+          <li>Creating and adapting high-quality planning and documentation</li>
+          <li>Solving software engineering problems in a distributed team</li>
+          <li>Being responsible for decisions of a role in a project</li>
+          <li>Collecting and maintaining knowledge in a medium-sized team</li>
+          <li>Presenting project results</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Teaching methods</summary>
+        <ul>
+          <li>Accompanying lectures on theoretical concepts and methodological basics</li>
+          <li>Refreshing previous knowledge in tutorials</li>
+          <li>Reflection of one's own previous knowledge on the basis of an exercise example</li>
+          <li>Implementation of a medium-sized software project in a team of 4&ndash;6 persons</li>
+          <li>Intensive supervision of the teams by a tutor</li>
+          <li>Intensive use of appropriate software development tools and methods</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Curricula and related courses</summary>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Study code</th>
+              <th scope="col">Obligation</th>
+              <th scope="col">Semester</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>033 521 Informatics</td><td>Mandatory elective</td><td>4th semester</td></tr>
+            <tr><td>033 526 Business Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 532 Media Informatics and Visual Computing</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 533 Medical Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
+            <tr><td>033 534 Software &amp; Information Engineering</td><td>Mandatory</td><td>4th semester</td></tr>
+          </tbody>
+        </table>
+        <p>In all assigned curricula the course requires the completion of the introductory and orientation phase (STEOP).</p>
+        <p>
+          <strong>Preceding course:</strong> 194.020 VU Software Engineering<br>
+          <strong>Continuative courses:</strong>
+          <a href="/ase/">188.910 PR Advanced Software Engineering</a>,
+          180.764 VU Software Quality Assurance,
+          194.021 VU Advanced Software Engineering
+        </p>
+      </details>
+    </section>
+
+    <section id="registration">
+      <h2>Registration</h2>
+
+      <p>
+        <em>Important!</em> Registration for this course runs through
+        <a href="{{ page.tiss }}">TISS</a>, from
+        <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
+        (strict deadline!).
+      </p>
+
+      <p>
+        All students registered in TISS until the deadline will have access to the course in
+        <a href="{{ page.tuwel }}">TUWEL</a>.<br>
+        <strong>Deregistration is possible until {{ c.registration.deregistration_until }}.</strong>
+      </p>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <p>
+          <em>Mandatory prerequisite</em> is the completion of the introductory and orientation phase (STEOP).
+          We kindly ask for your understanding that we cannot make exceptions here (exchange students excluded).
+        </p>
+        <p>Furthermore we expect:</p>
+        <ul>
+          <li>Object-oriented analysis, design and programming</li>
+          <li>Basics of the Unified Modeling Language (UML)</li>
+          <li>Basic knowledge of algorithms and data structures</li>
+          <li>Basic knowledge of database systems</li>
+          <li>Using a practical programming language and tools (e.g. Java or C++)</li>
+          <li>Applying an integrated development environment and source code management</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="timetable">
+      <h2>Timetable</h2>
+
+      <p>
+        The following table lists all important dates for the course (preliminary discussion,
+        entry test, tutor meetings, Management Reviews, deadlines).
+      </p>
+
+      <p>
+        If a deadline is listed on a certain date, assume it is due at 23:55 that day unless specified otherwise.
+      </p>
+
+      <section>
+        <h3>Lecture dates</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for d in c.dates %}
+            <tr>
+              <td>{{ d.day }} {{ d.date }}<br>{{ d.time }}</td>
+              <td>{{ d.description }}</td>
+              <td>{{ d.room }}</td>
+            </tr>
+            {%- endfor %}
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td colspan="2">Registration and deregistration deadline in TISS</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      {%- if c.exams %}
+      <section>
+        <h3>Bootcamp Examination slots</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for e in c.exams %}
+            <tr>
+              <td>{{ e.day }} {{ e.date }}<br>{{ e.time }}</td>
+              <td>{{ e.description }}</td>
+              <td>{{ e.room }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h3>Further milestones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fri 09.10.2026<br>23:55</td>
+              <td>TUWEL Entry test</td>
+              <td>Must be passed positively</td>
+            </tr>
+            <tr>
+              <td>Fri 23.10.2026<br>23:55</td>
+              <td>Submission individual assignment</td>
+              <td>Final grading in submission interview</td>
+            </tr>
+            <tr>
+              <td>03.11.2026 - 06.11.2026</td>
+              <td>Kickoff meeting, group formation</td>
+              <td>Start of group phase</td>
+            </tr>
+            <tr>
+              <td>16.11.2026 - 20.11.2026</td>
+              <td>Management Review 1</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>14.12.2026 - 18.12.2026</td>
+              <td>Management Review 2</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>25.01.2027 - 28.01.2027</td>
+              <td>Management Review 3</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="assignments">
+      <h2>Assignments</h2>
+
+      <p>
+        The course consists of two phases that together amount to 150 hours of work (6 ECTS).
+      </p>
+
+      <h3>Bootcamp (total: 40 hours)</h3>
+      <p>
+        You work independently: after the preliminary discussion you complete the entry test,
+        familiarise yourself with the technologies used, and implement an individual assignment.
+      </p>
+      <ul>
+        <li>Preliminary discussion &mdash; 1 hour</li>
+        <li>Visit to tutorials (optional) &mdash; 5 hours</li>
+        <li>Entry test &mdash; 0.5 hours</li>
+        <li>Familiarisation with the technologies used &mdash; 8 hours</li>
+        <li>Implementation individual assignment &mdash; 30.5 hours</li>
+      </ul>
+
+      <h3>Group phase (total: 110 hours, per group member)</h3>
+      <p>
+        Your team develops a software project using Scrum, supervised by a tutor,
+        and presents progress in three Management Reviews.
+      </p>
+      <ul>
+        <li>Kickoff meeting &mdash; 1 hour</li>
+        <li>10&times; meeting with tutor &mdash; 10 hours</li>
+        <li>3&times; Management Review &mdash; 3 hours</li>
+        <li>Group-internal meetings, project management &mdash; 22 hours</li>
+        <li>Familiarization with the domain &mdash; 7 hours</li>
+        <li>Deepening in the applied technologies &mdash; 7 hours</li>
+        <li>Implementation &mdash; 45 hours</li>
+        <li>Quality assurance / testing &mdash; 15 hours</li>
+      </ul>
+    </section>
+
+    <section id="grading">
+      <h2>Grading</h2>
+
+      <p>
+        The grading consists of <strong>25&nbsp;% from the Bootcamp</strong> and
+        <strong>75&nbsp;% from the group phase</strong>. The Bootcamp consists of an entry test
+        and the solving of an exercise example. The assessment of performance in the group phase takes
+        place within the framework of Management Reviews.
+      </p>
+
+      <p>
+        <strong>Both phases must be completed positively</strong> for a positive completion of the course.
+      </p>
+
+      <p>
+        <strong>Repeatability of partial performances:</strong> Since the &ldquo;Bootcamp&rdquo;
+        and &ldquo;group phase&rdquo; are partial performances that must be completed over a longer period
+        of time (implementation of the individual assignment, development of the group project), there is
+        <em>no possibility of repetition</em> for these partial performances.
+      </p>
+
+      <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
+
+      <h3>Grading scale</h3>
+      <p>
+        <span class="todo">TODO</span> TISS does not publish a grading scale for this course &mdash;
+        fill in the scale used in this course.
+      </p>
+    </section>
