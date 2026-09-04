@@ -81,11 +81,11 @@ This sets `<html lang>` and switches the section labels in the navigation. Secti
 anchors (`#team`, `#registration`, ...) stay in English in every language so links
 keep working across editions.
 
-Currently: **SEP is German** (the course is taught in German), **ASE is English**.
+Currently: **SEP is English** (the course is taught in English), **ASE is English**.
 
 The shared `_includes/` (AI usage policy, academic honesty) are **English on every
 page**, and carry an explicit `lang="en"` so screen readers switch voice correctly on
-the German page. Their headings are therefore also English in the navigation.
+the English page. Their headings are therefore also English in the navigation.
 
 ## Editing shared content
 

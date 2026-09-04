@@ -26,129 +26,60 @@ email: se-pr@se.tuwien.ac.at
       </p>
 
       <dl>
-        <dt>Course number</dt>
+        <dt><strong>Course number</strong></dt>
         <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, {{ c.format }}, continuous assessment</dd>
 
-        <dt>Course lead</dt>
+        <dt><strong>Course lead</strong></dt>
         <dd>
-          <ul>
-            {%- for person in c.staff %}
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
             {%- if person.role == "lead" %}
-            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+              {%- if staff_count > 0 %}, {% endif %}<a href="{{ person.url }}">{{ person.name }}</a>
+              {%- assign staff_count = staff_count | plus: 1 %}
             {%- endif %}
-            {%- endfor %}
-          </ul>
+          {%- endfor %}
         </dd>
 
-        <dt>Lecturers</dt>
+        <dt><strong>Lecturers</strong></dt>
         <dd>
-          <ul>
-            {%- for person in c.staff %}
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
             {%- assign role = person.role | default: "assistant" %}
             {%- if role == "staff" %}
-            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
             {%- endif %}
-            {%- endfor %}
-          </ul>
+          {%- endfor %}
         </dd>
 
-        <dt>Assistants</dt>
+        <dt><strong>Assistants</strong></dt>
         <dd>
-          <ul>
-            {%- for person in c.staff %}
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
             {%- assign role = person.role | default: "assistant" %}
             {%- if role == "assistant" %}
-            <li><a href="{{ person.url }}">{{ person.name }}</a></li>
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
             {%- endif %}
-            {%- endfor %}
-          </ul>
+          {%- endfor %}
         </dd>
 
-        <dt>Course email</dt>
+        <dt><strong>Course email</strong></dt>
         <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd>
 
-        <dt>Preliminary discussion</dt>
+        <dt><strong>Preliminary discussion</strong></dt>
         <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
 
-        <dt>Course catalog</dt>
+        <dt><strong>Course catalog</strong></dt>
         <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (194.148, {{ page.edition }})</dd>
 
-        <dt>TUWEL</dt>
+        <dt><strong>TUWEL</strong></dt>
         <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
 
-        <dt>Institute</dt>
+        <dt><strong>Institute</strong></dt>
         <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
       </dl>
 
-      <details>
-        <summary>Learning outcomes</summary>
-        <p>After successful completion of the course, students are able to</p>
-        <ul>
-          <li>use the agile software development process Scrum practice-oriented with all aspects;</li>
-          <li>work with modern frameworks for the development of web applications (Spring Boot, Angular);</li>
-          <li>use a distributed source code management system (Git);</li>
-          <li>work with modern software development environments (IntelliJ IDEA);</li>
-          <li>understand and apply modern software architectures;</li>
-          <li>use best practices in a given context;</li>
-          <li>deal successfully with group dynamic and social aspects;</li>
-          <li>present project results in a target-group oriented way.</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Subject of course</summary>
-        <ul>
-          <li>Using a practice-oriented development process model in software development</li>
-          <li>Applying concepts and methods for the individual phases of a software engineering project</li>
-          <li>Selecting and applying concepts, models and tools within a medium-sized software development project</li>
-          <li>Applying techniques for abstraction and modelling in software engineering</li>
-          <li>Creating and adapting high-quality planning and documentation</li>
-          <li>Solving software engineering problems in a distributed team</li>
-          <li>Being responsible for decisions of a role in a project</li>
-          <li>Collecting and maintaining knowledge in a medium-sized team</li>
-          <li>Presenting project results</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Teaching methods</summary>
-        <ul>
-          <li>Accompanying lectures on theoretical concepts and methodological basics</li>
-          <li>Refreshing previous knowledge in tutorials</li>
-          <li>Reflection of one's own previous knowledge on the basis of an exercise example</li>
-          <li>Implementation of a medium-sized software project in a team of 4&ndash;6 persons</li>
-          <li>Intensive supervision of the teams by a tutor</li>
-          <li>Intensive use of appropriate software development tools and methods</li>
-        </ul>
-      </details>
-
-      <details>
-        <summary>Curricula and related courses</summary>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Study code</th>
-              <th scope="col">Obligation</th>
-              <th scope="col">Semester</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>033 521 Informatics</td><td>Mandatory elective</td><td>4th semester</td></tr>
-            <tr><td>033 526 Business Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
-            <tr><td>033 532 Media Informatics and Visual Computing</td><td>Mandatory</td><td>4th semester</td></tr>
-            <tr><td>033 533 Medical Informatics</td><td>Mandatory</td><td>4th semester</td></tr>
-            <tr><td>033 534 Software &amp; Information Engineering</td><td>Mandatory</td><td>4th semester</td></tr>
-          </tbody>
-        </table>
-        <p>In all assigned curricula the course requires the completion of the introductory and orientation phase (STEOP).</p>
-        <p>
-          <strong>Preceding course:</strong> 194.020 VU Software Engineering<br>
-          <strong>Continuative courses:</strong>
-          <a href="/ase/">188.910 PR Advanced Software Engineering</a>,
-          180.764 VU Software Quality Assurance,
-          194.021 VU Advanced Software Engineering
-        </p>
-      </details>
     </section>
 
     <section id="registration">
@@ -297,10 +228,11 @@ email: se-pr@se.tuwien.ac.at
       <h2>Course Structure</h2>
 
       <p>
-        The course consists of two phases that together amount to 480 points.
+        The course consists of two phases that together amount to 400 points. Both phases must
+        be completed positively for a positive completion of the course.
       </p>
 
-      <h3>Bootcamp (total: 120pts)</h3>
+      <h3>Bootcamp (total: 100pts)</h3>
       <p>
         You work independently during the Bootcamp. The main objective of the Bootcamp is 
         to teach you solid software engineering practices and to prepare you for the group phase.
@@ -309,8 +241,8 @@ email: se-pr@se.tuwien.ac.at
         The Bootcamp consists of:
         <ul>
           <li>Entry Test (5pts)</li>
-          <li>Individual Assignment (60pts)</li>
-          <li>Live Coding (55pts)</li>
+          <li>Individual Assignment (50pts)</li>
+          <li>Live Coding (45pts)</li>
           <li>Submission Interview</li>
         </ul>
         To get you started with the fundamentals and technologies taught in this course,
@@ -319,6 +251,7 @@ email: se-pr@se.tuwien.ac.at
       </p>
       <h4>Entry Test</h4>
       <p>
+        <span class="todo">TODO: Unlimited retries and pass or just 1 try and no fail?</span>.
         The entry test will be a TUWEL online test that can be repeated as often as you like until the
         deadline. The test will cover <span class="todo">TODO</span> fill in the topics covered in the entry test.
       </p>
@@ -328,7 +261,7 @@ email: se-pr@se.tuwien.ac.at
         During the individual assignment, you will implement a web application using 
         <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>.
         The assignment will be released on TUWEL after the preliminary discussion and you 
-        have 23 days to complete it. 
+        have about 3 weeks to complete it. 
       </p>
       <p>
         The assignment will be graded by a combination of <em>hidden tests</em>, 
@@ -355,30 +288,99 @@ email: se-pr@se.tuwien.ac.at
 
       <h4>Live Coding and Submission Interview</h4>
       <p>
-       <span class="todo">TODO</span> fill this content.
+        <strong>Make sure to register in TUWEL for a live coding and interview slot!</strong>
+      </p>
+      <p>
+        During your slot, you will start with a live coding exercise in class. The exercise will
+        be to implement a small feature that extends the individual assignment you've been working on
+        for the last 3 weeks. You will have 45 minutes <span class="todo">TODO: 45 minutes final?</span>
+        to complete the exercise. To ensure everyone has the same starting point, we will provide you
+        with a base project that contains a complete implementation of the individual assignment.
+      </p>
+      <p>
+        After the live coding exercise, you will have a submission interview with a tutor. The tutor will
+        look at your live coding and individual assignment solution and ask you questions about both. The
+        interview will take about 30 minutes <span class="todo">TODO: 30 minutes final?</span> and will be used to determine your final grade for the Bootcamp.
+      </p>
+      <p>
+        The main focus of the interview will be to assess your understanding and ownership
+        of the project. As in real software projects, you are responsible for your solution and
+        should be able to explain your design choices, implementation details and the concepts
+        behind your solution. The tutor will further use the interview to assess your solutions adherence
+        to the technical guidelines and best practices taught in the course.
       </p>
 
 
 
-      <h3>Group phase (total: 360pts, per group member)</h3>
+      <h3>Group phase (total: 300pts, per group member)</h3>
       <p>
         Your team develops a software project using Scrum, supervised by a tutor,
-        and presents progress in three Management Reviews.
+        and presents progress in three Management Reviews. You will work on a project
+        of either your choice or a predefined project which will be anounce soon in TUWEL.
       </p>
-      <ul>
-        <li>Kickoff meeting &mdash; 1 hour</li>
-        <li>10&times; meeting with tutor &mdash; 10 hours</li>
-        <li>3&times; Management Review &mdash; 3 hours</li>
-        <li>Group-internal meetings, project management &mdash; 22 hours</li>
-        <li>Familiarization with the domain &mdash; 7 hours</li>
-        <li>Deepening in the applied technologies &mdash; 7 hours</li>
-        <li>Implementation &mdash; 45 hours</li>
-        <li>Quality assurance / testing &mdash; 15 hours</li>
-      </ul>
+
+      <h4>Group finding</h4>
+      <p>
+        After the live coding and submission interview, everyone who completed the Bootcamp positively
+        will have 3 days to submit group preferences in TUWEL. You can use the group finding forum
+        in TUWEL to find teammates and discuss project ideas. <strong>PLEASE NOTE: these are preferences
+        we will try to accommodate, but we cannot guarantee that everyone will get their preferred 
+        teammates or project.</strong>
+      </p>
+
+      <h4>Project finding</h4>
+      <p>
+        After we assigned you to your final group, you will have 1 week to submit a project proposal.
+        This proposal can be based on our predefined project or a project of your choice. The proposal
+        should contain a short description of the project, the technologies you will use and the features
+        you will implement, described through user stories.
+      </p>
+
+      <h4>Technologies</h4>
+      <p>
+        During the group phase, you will be free to choose the technologies you want to use for your
+        project. However, we recommend to use the technologies taught in the Bootcamp 
+        (<a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>).
+        If you want to choose other technologies, we cannot guarantee support and it would be best to
+        discuss this with your tutor and make sure that your team has the necessary knowledge to use them.
+      </p>
+
+      <h4>Development</h4>
+      <p>
+        Overall the development phase will last about 10 weeks which will be split into 4 sprints. 
+        During this time, you will have weekly meetings with your tutor. The development phase starts
+        after the first Management Review and ends with the final Management Review.
+      </p>
+
+      <h4>Group Phase Grading</h4>
+      <p>
+        While this is a group project, grading will happen for each individual student and continuously
+        throughout the group phase. Your grade consists of the following components:
+        <ul>
+          <li>Sprint reviews (4x 40pts)</li>
+          <li>Technical review (1x 40pts)</li>
+          <li>Overall project success (100pts)</li>
+        </ul>
+      </p>
+      <p>
+        <strong>Sprint reviews</strong> are made by your tutor. For each sprint your tutor will
+        look at 1-2 merge requests per student and grade them based on the quality of your code,
+        your adherence to the technical guidelines and best practices taught in the course.
+      </p>
+      <p>
+        The <strong>technical review</strong> will be conducted by a different tutor than your own.
+        In the week before <em>Management Review 2</em> another tutor will look at one merge request for
+        each student and grad it based on the same criteria as the sprint reviews.
+      </p>
+      <p>
+        The <strong>overall project success</strong> will be assessed by your assistant during the
+        Management Reviews. The assessment will be based on the quality of your final product, the
+        completeness of your project and the overall success of your team. 
+      </p>
     </section>
 
     <section id="grading">
-      <h2>Grading</h2>
+      <h2>Overall Grading</h2>
 
       <p>
         The grading consists of <strong>25&nbsp;% from the Bootcamp</strong> and
@@ -388,7 +390,7 @@ email: se-pr@se.tuwien.ac.at
       </p>
 
       <p>
-        <strong>Both phases must be completed positively</strong> for a positive completion of the course.
+        <strong>Both phases must be completed positively (&#8805; 50%)</strong> for a positive completion of the course.
       </p>
 
       <p>
@@ -402,7 +404,21 @@ email: se-pr@se.tuwien.ac.at
 
       <h3>Grading scale</h3>
       <p>
-        <span class="todo">TODO</span> TISS does not publish a grading scale for this course &mdash;
-        fill in the scale used in this course.
+        All partial and final performances are graded on the same scale from 0 to 100 percent:
+        <ul>
+          <li>S1: 88%-100%</li>
+          <li>G2: 75%-87.99%</li>
+          <li>B3: 63%-74.99%</li>
+          <li>G4: 50%-62.99%</li>
+          <li>N5: 0%-49.99%</li>
+        </ul>
+
+        This results in the following point distribution for your final grade:
+        <ul>
+          <li>S1: 352-400pts</li>
+          <li>G2: 300-351.99pts</li>
+          <li>B3: 252-299.99pts</li>
+          <li>G4: 200-251.99pts</li>
+          <li>N5: 0-199.99pts</li>
       </p>
     </section>
