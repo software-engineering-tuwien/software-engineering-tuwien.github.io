@@ -10,18 +10,18 @@ tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82789
 email: se-pr@se.tuwien.ac.at
 ---
 {%- assign c = site.data.courses[page.course][page.semester] -%}
-{%- assign vorbesprechung = c.dates | where: "description", "Vorbesprechung" | first -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Kickoff" | first -%}
     <section id="team">
       <h2>Team and Overview</h2>
 
       <p>
         In this course you carry out a medium-sized software development project in a team, consistently
-        applying an agile development process. The course is divided into two phases: 1.) Bootcamp, and 2.) Group phase.
+        applying an agile development process. The course is divided into two phases: 1.) <em>Bootcamp</em>, and 2.) <em>Group Phase</em>.
       </p>
       <p>
-        During the Bootcamp, you will be working on an individual assignment. In this assignment you will 
+        During the <em>Bootcamp</em>, you will be working on an individual assignment. In this assignment you will 
         develop a web application with <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>. 
-        In the group phase you will work in teams of 4-6 students on a software project of your choice where you will be supported by a tutor and will 
+        In the <em>Group Phase</em> you will work in teams of 4-6 students on a software project of your choice where you will be supported by a tutor and will 
         present your progress in regular <em>Management Reviews</em>.
       </p>
 
@@ -86,7 +86,7 @@ email: se-pr@se.tuwien.ac.at
       <h2>Registration</h2>
 
       <p>
-        <em>Important!</em> Registration for this course runs through
+        <strong>Important!</strong> Registration for this course runs through
         <a href="{{ page.tiss }}">TISS</a>, from
         <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
         (strict deadline!).
@@ -101,7 +101,7 @@ email: se-pr@se.tuwien.ac.at
       <section>
         <h3>Prerequisites</h3>
         <p>
-          <em>Mandatory prerequisite</em> is the completion of the introductory and orientation phase (STEOP).
+          <strong>Mandatory prerequisite</strong> is the completion of the introductory and orientation phase (STEOP).
           We kindly ask for your understanding that we cannot make exceptions here (exchange students excluded).
         </p>
         <p>Furthermore we expect:</p>
@@ -121,7 +121,7 @@ email: se-pr@se.tuwien.ac.at
 
       <p>
         The following table lists all important dates for the course (preliminary discussion,
-        entry test, tutor meetings, Management Reviews, deadlines).
+        entry test, tutor meetings, <em>Management Review</em>, deadlines).
       </p>
 
       <p>
@@ -202,7 +202,7 @@ email: se-pr@se.tuwien.ac.at
             <tr>
               <td>03.11.2026 - 06.11.2026</td>
               <td>Kickoff meeting, group formation</td>
-              <td>Start of group phase</td>
+              <td>Start of <em>Group Phase</em></td>
             </tr>
             <tr>
               <td>16.11.2026 - 20.11.2026</td>
@@ -234,11 +234,11 @@ email: se-pr@se.tuwien.ac.at
 
       <h3>Bootcamp (total: 100pts)</h3>
       <p>
-        You work independently during the Bootcamp. The main objective of the Bootcamp is 
-        to teach you solid software engineering practices and to prepare you for the group phase.
+        You work independently during the <em>Bootcamp</em>. The main objective of the <em>Bootcamp</em> is 
+        to teach you solid software engineering practices and to prepare you for the <em>Group Phase</em>.
       </p>
       <p>
-        The Bootcamp consists of:
+        The <em>Bootcamp</em> consists of:
         <ul>
           <li>Entry Test (5pts)</li>
           <li>Individual Assignment (50pts)</li>
@@ -249,155 +249,164 @@ email: se-pr@se.tuwien.ac.at
         we have a selection of optional recordings and reading materials available in TUWEL.
         <span class="todo">TODO</span> Or here??.
       </p>
-      <h4>Entry Test</h4>
+
+      <details>
+        <summary>Entry Test</summary>
+        <p>
+          <span class="todo">TODO: Unlimited retries and pass or just 1 try and no fail?</span>.
+          The entry test will be a TUWEL online test that can be repeated as often as you like until the
+          deadline. The test will cover <span class="todo">TODO</span> fill in the topics covered in the entry test.
+        </p>
+      </details>
+
+      <details>
+        <summary>Individual Assignment</summary>
+        <p>
+          During the individual assignment, you will implement a web application using 
+          <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>.
+          The assignment will be released on TUWEL after the preliminary discussion and you 
+          have about 3 weeks to complete it. 
+        </p>
+        <p>
+          The assignment will be graded by a combination of <em>automated tests</em>, 
+          which will set your base grade, and a <em>submission interview</em>, where 
+          a tutor will look at your solution and ask you questions about it. The 
+          submission interview can alter your grade in either direction, and it is 
+          possible to get a negative grade even if you have passed the automated tests. The submission 
+          interview will take place directly after the <em>live coding</em>. 
+        </p>
+        <p>
+          During the assignment you will have the chance to ask questions and get help from 
+          the teaching staff in the TUWEL forum and during tutor hours. Further, we will provide 
+          you with intermediate feedback on your progress at set points TBA on TUWEL. The 
+          intermediate feedback will consist of a test report generated by the same automated tests 
+          that will be used for final grading. The intermediate feedback will not be graded, 
+          but will give you an impression on your progress and how to improve your solution. 
+        </p>
+        <p>
+          <strong>It is recommended to start the assignment early</strong> and to work on it continuously, 
+          as the assignment should not be underestimated and will likely require a significant 
+          amount of time to complete. Further, starting early ensures that you will get feedback 
+          more often.
+        </p>
+      </details>
+
+      <details>
+        <summary>Live Coding and Submission Interview</summary>
+        <p>
+          <strong>Make sure to register in TUWEL for a live coding and interview slot!</strong>
+        </p>
+        <p>
+          During your slot, you will start with a live coding exercise in class. The exercise will
+          consist of a small feature that extends a sample solution of the project from the individual 
+          assignment provided by us. You will have 45 minutes <span class="todo">TODO: 45 minutes final?</span>
+          to complete the exercise. 
+        </p>
+        <p>
+          After the live coding exercise, you will have a submission interview with a tutor. The tutor will
+          look at your live coding and individual assignment solution and ask you questions about both. The
+          interview will take about 30 minutes <span class="todo">TODO: 30 minutes final?</span> 
+          and will be used to determine your final grade for the <em>Bootcamp</em>.
+        </p>
+        <p>
+          The main focus of the interview will be to assess your understanding and ownership
+          of the project. As in real software projects, you are responsible for your solution and
+          should be able to explain your design choices, implementation details and the concepts
+          behind your solution. The tutor will further use the interview to assess your solutions adherence
+          to the technical guidelines and best practices taught in the course.
+        </p>
+      </details>
+
+
+      <h3>Group Phase (total: 300pts, per group member)</h3>
       <p>
-        <span class="todo">TODO: Unlimited retries and pass or just 1 try and no fail?</span>.
-        The entry test will be a TUWEL online test that can be repeated as often as you like until the
-        deadline. The test will cover <span class="todo">TODO</span> fill in the topics covered in the entry test.
+        Your team develops a software project using agile practices, supervised by a tutor,
+        and presents progress in three <em>Management Review</em>. You will work on a project
+        of either your choice or a suggested topic which will be anounced in TUWEL.
       </p>
 
-      <h4>Individual Assignment</h4>
-      <p>
-        During the individual assignment, you will implement a web application using 
-        <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>.
-        The assignment will be released on TUWEL after the preliminary discussion and you 
-        have about 3 weeks to complete it. 
-      </p>
-      <p>
-        The assignment will be graded by a combination of <em>hidden tests</em>, 
-        which will set your base grade, and a <em>submission interview</em>, where 
-        a tutor will look at your solution and ask you questions about it. The 
-        submission interview can alter your grade in either direction, and it is 
-        possible to get a negative grade even if you have passed the hidden tests. The submission 
-        interview will take place directly after the <em>live coding</em>. 
-      </p>
-      <p>
-        During the assignment you will have the chance to ask questions and get help from 
-        the teaching staff in the TUWEL forum and during tutor hours. Further, we will provide 
-        you with intermediate feedback on your progress at set points TBA on TUWEL. The 
-        intermediate feedback will consist of a test report generated by the same hidden tests 
-        that will be used for final grading. The intermediate feedback will not be graded, 
-        but will give you an impression on your progress and how to improve your solution. 
-      </p>
-      <p>
-        <strong>It is recommended to start the assignment early</strong> and to work on it continuously, 
-        as the assignment is designed to be challenging and will require a significant 
-        amount of time to complete. Further, starting early ensures that you will get feedback 
-        more often.
-      </p>
+      <details>
+        <summary>Group finding</summary>
+        <p>
+          After the live coding and submission interview, everyone who completed the <em>Bootcamp</em> positively
+          will have 3 days to submit group preferences in TUWEL. You can use the group finding forum
+          in TUWEL to find teammates and discuss project ideas. <strong>PLEASE NOTE: these are preferences.
+          We will try to accommodate them, but cannot guarantee that everyone will get their preferred 
+          teammates or project.</strong>
+        </p>
+      </details>
 
-      <h4>Live Coding and Submission Interview</h4>
-      <p>
-        <strong>Make sure to register in TUWEL for a live coding and interview slot!</strong>
-      </p>
-      <p>
-        During your slot, you will start with a live coding exercise in class. The exercise will
-        be to implement a small feature that extends the individual assignment you've been working on
-        for the last 3 weeks. You will have 45 minutes <span class="todo">TODO: 45 minutes final?</span>
-        to complete the exercise. To ensure everyone has the same starting point, we will provide you
-        with a base project that contains a complete implementation of the individual assignment.
-      </p>
-      <p>
-        After the live coding exercise, you will have a submission interview with a tutor. The tutor will
-        look at your live coding and individual assignment solution and ask you questions about both. The
-        interview will take about 30 minutes <span class="todo">TODO: 30 minutes final?</span> and will be used to determine your final grade for the Bootcamp.
-      </p>
-      <p>
-        The main focus of the interview will be to assess your understanding and ownership
-        of the project. As in real software projects, you are responsible for your solution and
-        should be able to explain your design choices, implementation details and the concepts
-        behind your solution. The tutor will further use the interview to assess your solutions adherence
-        to the technical guidelines and best practices taught in the course.
-      </p>
+      <details>
+        <summary>Project finding</summary>
+        <p>
+          <span class="todo">TODO: Project proposal process finalization</span>
+          After we assigned you to your final group, you will have 1 week to submit a project proposal.
+          This proposal can be based on our suggested topic or a project of your choice. The proposal
+          should contain a short description of the project, the technologies you will use and the features
+          you will implement, described through user stories.
+        </p>
+      </details>
 
+      <details>
+        <summary>Technologies</summary>
+        <p>
+          <span class="todo">TODO: technology choice?</span>
+          During the <em>Group Phase</em>, you will be free to choose the technologies you want to use for your
+          project. However, we recommend to use the technologies taught in the <em>Bootcamp</em> 
+          (<a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>).
+          If you want to choose other technologies, we cannot guarantee support and it would be best to
+          discuss this with your tutor and make sure that your team has the necessary knowledge to use them.
+        </p>
+      </details>
 
+      <details>
+        <summary>Development</summary>
+        <p>
+          Overall the development phase will last about 10 weeks which will be split into 4 sprints. 
+          During this time, you will have weekly meetings with your tutor. The development phase starts
+          after the first <em>Management Review</em> and ends with the final <em>Management Review</em>.
+        </p>
+      </details>
 
-      <h3>Group phase (total: 300pts, per group member)</h3>
-      <p>
-        Your team develops a software project using Scrum, supervised by a tutor,
-        and presents progress in three Management Reviews. You will work on a project
-        of either your choice or a predefined project which will be anounce soon in TUWEL.
-      </p>
-
-      <h4>Group finding</h4>
-      <p>
-        After the live coding and submission interview, everyone who completed the Bootcamp positively
-        will have 3 days to submit group preferences in TUWEL. You can use the group finding forum
-        in TUWEL to find teammates and discuss project ideas. <strong>PLEASE NOTE: these are preferences
-        we will try to accommodate, but we cannot guarantee that everyone will get their preferred 
-        teammates or project.</strong>
-      </p>
-
-      <h4>Project finding</h4>
-      <p>
-        After we assigned you to your final group, you will have 1 week to submit a project proposal.
-        This proposal can be based on our predefined project or a project of your choice. The proposal
-        should contain a short description of the project, the technologies you will use and the features
-        you will implement, described through user stories.
-      </p>
-
-      <h4>Technologies</h4>
-      <p>
-        During the group phase, you will be free to choose the technologies you want to use for your
-        project. However, we recommend to use the technologies taught in the Bootcamp 
-        (<a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>).
-        If you want to choose other technologies, we cannot guarantee support and it would be best to
-        discuss this with your tutor and make sure that your team has the necessary knowledge to use them.
-      </p>
-
-      <h4>Development</h4>
-      <p>
-        Overall the development phase will last about 10 weeks which will be split into 4 sprints. 
-        During this time, you will have weekly meetings with your tutor. The development phase starts
-        after the first Management Review and ends with the final Management Review.
-      </p>
-
-      <h4>Group Phase Grading</h4>
-      <p>
-        While this is a group project, grading will happen for each individual student and continuously
-        throughout the group phase. Your grade consists of the following components:
-        <ul>
-          <li>Sprint reviews (4x 40pts)</li>
-          <li>Technical review (1x 40pts)</li>
-          <li>Overall project success (100pts)</li>
-        </ul>
-      </p>
-      <p>
-        <strong>Sprint reviews</strong> are made by your tutor. For each sprint your tutor will
-        look at 1-2 merge requests per student and grade them based on the quality of your code,
-        your adherence to the technical guidelines and best practices taught in the course.
-      </p>
-      <p>
-        The <strong>technical review</strong> will be conducted by a different tutor than your own.
-        In the week before <em>Management Review 2</em> another tutor will look at one merge request for
-        each student and grad it based on the same criteria as the sprint reviews.
-      </p>
-      <p>
-        The <strong>overall project success</strong> will be assessed by your assistant during the
-        Management Reviews. The assessment will be based on the quality of your final product, the
-        completeness of your project and the overall success of your team. 
-      </p>
+      <details>
+        <summary>Group Phase Grading</summary>
+        <p>
+          While this is a group project, grading will happen for each individual student and continuously
+          throughout the <em>Group Phase</em>. Your grade consists of the following components:
+          <ul>
+            <li>Sprint Reviews (4x 40pts)</li>
+            <li>Technical Review (1x 40pts)</li>
+            <li>Overall Project Success (100pts)</li>
+          </ul>
+        </p>
+        <p>
+          <strong><em>Sprint Reviews</em></strong> are made by your tutor. For each sprint your tutor will
+          look at 1-2 merge requests per student and provide a grading recommendation based on the quality 
+          of your code, your adherence to the user story and technical guidelines as well as best practices 
+          taught in the course.
+        </p>
+        <p>
+          The <strong><em>Technical Review</em></strong> will be conducted by a different tutor than your own.
+          In the week before <em>Management Review 2</em> another tutor will look at one merge request for
+          each student and provide a grading recommendation based on the same criteria as the sprint reviews.
+        </p>
+        <p>
+          The <strong><em>Overall Project Success</em></strong> will be assessed by your assistant during the
+          final <em>Management Review</em>. The assessment will be based on the quality of your final product, the
+          completeness of your project and the overall success of your team. 
+        </p>
+      </details>
     </section>
 
     <section id="grading">
       <h2>Overall Grading</h2>
 
       <p>
-        The grading consists of <strong>25&nbsp;% from the Bootcamp</strong> and
-        <strong>75&nbsp;% from the group phase</strong>. The Bootcamp consists of an entry test
-        and the solving of an exercise example. The assessment of performance in the group phase takes
-        place within the framework of Management Reviews.
-      </p>
+        The grading consists of <strong>25&nbsp;% from the <em>Bootcamp</em></strong> and
+        <strong>75&nbsp;% from the <em>Group Phase</em></strong>.
 
       <p>
         <strong>Both phases must be completed positively (&#8805; 50%)</strong> for a positive completion of the course.
-      </p>
-
-      <p>
-        <strong>Repeatability of partial performances:</strong> Since the &ldquo;Bootcamp&rdquo;
-        and &ldquo;group phase&rdquo; are partial performances that must be completed over a longer period
-        of time (implementation of the individual assignment, development of the group project), there is
-        <em>no possibility of repetition</em> for these partial performances.
       </p>
 
       <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
