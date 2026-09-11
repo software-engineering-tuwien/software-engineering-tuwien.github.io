@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   <style>
+    blockquote.important {
+      background: var(--background-alt);
+      background: color-mix(in srgb, var(--links) 8%, var(--background-body));
+      color: var(--text-bright);
+      font-style: normal;
+      padding: 1rem 1.25rem;
+    }
+
+    blockquote.important::before {
+      content: "ⓘ  Important";
+      display: block;
+      margin-bottom: 0.65rem;
+      color: var(--links);
+      font-weight: 700;
+    }
+
+    blockquote.important p {
+      margin: 0;
+    }
     nav a::after {
       content: " | ";
     }
