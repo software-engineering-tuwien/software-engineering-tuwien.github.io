@@ -58,8 +58,8 @@ staff:
     role: "assistant"
 registration:
   from: "20.09.2026 00:00"
-  to: "05.10.2026 23:55"
-  deregistration_until: "05.10.2026 23:55"
+  to: "05.10.2026 16:00"
+  deregistration_until: "05.10.2026 16:00"
 dates:
   - day: "Thu"
     time: "16:00 - 17:00"
