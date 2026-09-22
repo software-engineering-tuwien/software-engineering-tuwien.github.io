@@ -24,5 +24,9 @@ layout: base
 
 {% include academic-honesty.html %}
 
+{% if page.course == "sep" %}
+{% include ai-policy-sep.html %}
+{% else %}
 {% include ai-policy.html %}
+{% endif %}
   </main>
