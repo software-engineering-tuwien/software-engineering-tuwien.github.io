@@ -146,10 +146,6 @@ email: se-pr@se.tuwien.ac.at
               <td>{% if d.online_lecture %}Zoom (Link in <a href="{{ page.tuwel }}">TUWEL</a>){% else %}{{ d.room }}{% endif %}</td>
             </tr>
             {%- endfor %}
-            <tr class="release">
-              <td>{{ c.registration.to }}</td>
-              <td colspan="2">Registration and deregistration deadline in <a href="{{ page.tiss }}">TISS</a></td>
-            </tr>
           </tbody>
         </table>
       </section>
@@ -189,6 +185,11 @@ email: se-pr@se.tuwien.ac.at
             </tr>
           </thead>
           <tbody>
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td>Registration deadline in <a href="{{ page.tiss }}">TISS</a></td>
+              <td></td>
+            </tr>
             <tr>
               <td>Fri 09.10.2026<br>23:55</td>
               <td><a href="{{ page.tuwel }}">TUWEL</a> Entry test</td>
