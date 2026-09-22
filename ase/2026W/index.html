@@ -1,0 +1,347 @@
+---
+layout: course
+course: ase
+semester: 2026W
+edition: WS 2026/27
+title: Advanced Software Engineering WS2026 -- TU Wien
+heading: Advanced Software Engineering (188.910)
+tiss: https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188910&amp;semester=2026W
+tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82792
+email: ase-pr@se.tuwien.ac.at
+---
+{%- assign c = site.data.courses[page.course][page.semester] -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Kickoff" | first -%}
+    <section id="team">
+      <h2>Team and Overview</h2>
+
+      <p>
+        In this master's-level project course you develop a larger software system in a team, working with the
+        architectures, tools and automation practices that characterise <em>advanced</em> software systems.
+        Your team proposes its own project, agrees on a project contract, implements it over the semester, and
+        defends its progress in <em>Management Reviews</em>.
+      </p>
+
+      <dl>
+        <dt><strong>Course number</strong></dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, {{ c.format }}, continuous assessment</dd>
+
+        <dt><strong>Course lead</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- if person.role == "lead" %}
+              {%- if staff_count > 0 %}, {% endif %}<a href="{{ person.url }}">{{ person.name }}</a>
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Lecturers</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "staff" %}
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Assistants</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "assistant" %}
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Course email</strong></dt>
+        <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd>
+
+        <dt><strong>Preliminary discussion</strong></dt>
+        <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
+
+        <dt><strong>Course catalog</strong></dt>
+        <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (194.148, {{ page.edition }})</dd>
+
+        <dt><strong>TUWEL</strong></dt>
+        <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
+
+        <dt><strong>Institute</strong></dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
+      </dl>
+    </section>
+
+    <section id="registration">
+      <h2>Registration</h2>
+
+      <p>
+        <em>Important!</em> Registration for this course runs through
+        <a href="{{ page.tiss }}">TISS</a>, from
+        <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
+        (strict deadline!).
+      </p>
+
+      <p>
+        All students registered in <a href="{{ page.tiss }}">TISS</a> until the deadline will have access to the course in
+        <a href="{{ page.tuwel }}">TUWEL</a>.<br>
+        <strong>Deregistration is possible until {{ c.registration.deregistration_until }}.</strong>
+      </p>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <p>
+          We expect basic knowledge of software engineering and project management, as taught in the
+          corresponding bachelor's courses &mdash; for example
+          <a href="/sep/">Software Engineering Projekt (194.148)</a>.
+        </p>
+        <p>
+          The necessary qualifications are checked at the beginning of the course by means of an
+          <strong>entry test, which must be passed</strong>.
+        </p>
+      </section>
+    </section>
+
+    <section id="timetable">
+      <h2>Timetable</h2>
+
+      <p>
+        The following timetable lists all important dates for the course (preliminary discussion, entry test,
+        tutor meetings, management reviews, ASE Day).
+      </p>
+
+      <p>
+        If a deadline is listed on a certain date, assume it is due at 23:55 that day unless specified otherwise.
+      </p>
+
+      <section>
+        <h3>Scheduled dates</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for d in c.dates %}
+            <tr>
+              <td>{{ d.day }} {{ d.date }}<br>{{ d.time }}</td>
+              <td>{{ d.description }}</td>
+              <td>{{ d.room }}</td>
+            </tr>
+            {%- endfor %}
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td colspan="2">Registration and deregistration deadline in <a href="{{ page.tiss }}">TISS</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      {%- if c.exams %}
+      <section>
+        <h3>Examination slots</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for e in c.exams %}
+            <tr>
+              <td>{{ e.day }} {{ e.date }}<br>{{ e.time }}</td>
+              <td>{{ e.description }}</td>
+              <td>{{ e.room }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h3>Further milestones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>05.10.2026</td>
+              <td>Entry test</td>
+              <td>Must be passed to continue</td>
+            </tr>
+            <tr>
+              <td>07.10.2026</td>
+              <td>Retry Entry test</td>
+              <td>Must be passed to continue</td>
+            </tr>
+            <tr>
+              <td>12.10.2026</td>
+              <td>Group Finding Deadline</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>21.10.2026<br>08:00</td>
+              <td>Deadline project proposal</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>21.10.2026</td>
+              <td>Online proposal presentations</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>27.10.2026 - 30.10.2026</td>
+              <td>Management Review 1</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>07.12.2026 - 11.12.2026</td>
+              <td>Management Review 2</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>17.01.2027</td>
+              <td>Upload video</td>
+              <td>~5min presentation of your project</td>
+            </tr>
+            <tr>
+              <td>18.01.2027 - 22.01.2027</td>
+              <td>Management Review 3</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="assignments">
+      <h2>Course Structure</h2>
+
+      <p>
+        The course consists of an entry test and a project phase. 
+        The entry test is a prerequisite for the project phase, and needs to be completed positively in order to continue with the course. 
+        The project phase is a group project, where you will work in teams of 4-6 students on a self defined software project.
+      </p>
+
+      <details>
+        <summary>Entry Test (5pts)</summary>
+        <p>
+          <span class="todo">TODO: Describe what peter is planing</span>.
+          The entry test will be a take place in class and is repeatable once. You will have 45 minutes to solve several
+          multiple choice exercises. It is necessary to pass the entry test in order to continue with the course.
+        </p>
+      </details>
+
+      <details>
+        <summary>Group finding</summary>
+        <p>
+          After the the retry entry test, everyone who completed the test positively
+          will have 5 days to submit group preferences in <a href="{{ page.tuwel }}">TUWEL</a>. You can use the group finding forum
+          in <a href="{{ page.tuwel }}">TUWEL</a> to find teammates and discuss project ideas. <strong>PLEASE NOTE: these are preferences.
+          We will try to accommodate them, but cannot guarantee that everyone will get their preferred 
+          teammates or project.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Project finding</summary>
+        <p>
+          <span class="todo">TODO: Project proposal process finalization</span>
+          After we assigned you to your final group, you will have 1 week to submit a project proposal.
+          This proposal can be based on our suggested topic or a project of your choice. The proposal
+          should contain a short description of the project, the technologies you will use and the features
+          you will implement, described through user stories.
+        </p>
+      </details>
+
+      <details>
+        <summary>Technologies</summary>
+        <p>
+          You will be free to choose the technologies you want to use for your
+          project. However, we recommend to use technologies that are widely used in industry and have a large community.
+          Further we recommend to choose the technologies based on the project, your teams experience and to discuss your
+          ideas and choices with your tutor. This will help you to get feedback and avoid problems later on.
+        </p>
+      </details>
+
+      <details>
+        <summary>Development</summary>
+        <p>
+          Overall the development phase will last about 12 weeks which will be split into 5 sprints. 
+          During this time, you will have weekly meetings with your tutor. The development phase starts
+          after the first <em>Management Review</em> and ends with the final <em>Management Review</em>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Group Project Grading (95pts)</summary>
+        <p>
+          While this is a group project, grading will happen for each individual student and continuously
+          throughout the project. Your grade consists of the following components:
+          <ul>
+            <li>Sprint Reviews (5x 10pts)</li>
+            <li>Technical Review (1x 10pts)</li>
+            <li>Overall Project Success (30pts)</li>
+            <li>Video Presentation (5pts)</li>
+          </ul>
+        </p>
+        <p>
+          <strong><em>Sprint Reviews</em></strong> are made by your tutor. For each sprint your tutor will
+          look at 1-2 merge requests per student and provide a grading recommendation based on the quality 
+          of your code, your adherence to the user story and technical guidelines as well as best practices 
+          taught in the course.
+        </p>
+        <p>
+          The <strong><em>Technical Review</em></strong> will be conducted by a different tutor than your own.
+          In the week before <em>Management Review 2</em> another tutor will look at one merge request for
+          each student and provide a grading recommendation based on the same criteria as the sprint reviews.
+        </p>
+        <p>
+          The <strong><em>Overall Project Success</em></strong> will be assessed by your assistant during the
+          final <em>Management Review</em>. The assessment will be based on the quality of your final product, the
+          completeness of your project and the overall success of your team. 
+        </p>
+      </details>
+    </section>
+
+    <section id="grading">
+      <h2>Grading</h2>
+
+      <p>
+        The grading consists of <strong>5% from the <em>Entry Test</em></strong> and
+        <strong>90% from the <em>Group Project</em></strong>.
+
+      <p>
+        <strong>Both phases must be completed positively (&#8805; 50%)</strong> for a positive completion of the course.
+      </p>
+
+      <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
+
+      <h3>Grading scale</h3>
+      <p>
+        All partial and final performances are graded on the same scale from 0 to 100 percent:
+        <ul>
+          <li>S1: 88%-100%</li>
+          <li>G2: 75%-87.99%</li>
+          <li>B3: 63%-74.99%</li>
+          <li>G4: 50%-62.99%</li>
+          <li>N5: 0%-49.99%</li>
+        </ul>
+      </p>
+    </section>

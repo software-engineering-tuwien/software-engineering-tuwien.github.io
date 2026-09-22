@@ -1,0 +1,449 @@
+---
+layout: course
+course: sep
+semester: 2026W
+edition: WS 2026/27
+title: Software Engineering Projekt WS2026 -- TU Wien
+heading: Software Engineering Projekt (194.148)
+tiss: https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194148&amp;semester=2026W
+tuwel: https://tuwel.tuwien.ac.at/course/view.php?id=82789
+email: se-pr@se.tuwien.ac.at
+---
+{%- assign c = site.data.courses[page.course][page.semester] -%}
+{%- assign vorbesprechung = c.dates | where: "description", "Kickoff" | first -%}
+    <section id="team">
+      <h2>Team and Overview</h2>
+
+      <p>
+        In this course you carry out a medium-sized software development project in a team, consistently
+        applying an agile development process. The course is divided into two phases: 1.) <em>Bootcamp</em>, and 2.) <em>Group Phase</em>.
+      </p>
+      <p>
+        During the <em>Bootcamp</em>, you will be working on an individual assignment. In this assignment you will 
+        develop a web application with <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>. 
+        In the <em>Group Phase</em> you will work in teams of 4-6 students on a software project of your choice where you will be supported by a tutor and will 
+        present your progress in regular <em>Management Reviews</em>.
+      </p>
+
+      <dl>
+        <dt><strong>Course number</strong></dt>
+        <dd>{{ c.course_number }} &mdash; Projekt ({{ c.type }}), {{ c.weekly_hours }} semester hours, {{ c.ects }} ECTS, {{ c.format }}, continuous assessment</dd>
+
+        <dt><strong>Course lead</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- if person.role == "lead" %}
+              {%- if staff_count > 0 %}, {% endif %}<a href="{{ person.url }}">{{ person.name }}</a>
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Lecturers</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "staff" %}
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Assistants</strong></dt>
+        <dd>
+          {%- assign staff_count = 0 %}
+          {%- for person in c.staff %}
+            {%- assign role = person.role | default: "assistant" %}
+            {%- if role == "assistant" %}
+              {%- if staff_count > 0 %}, {% endif %}{{ person.name }}
+              {%- assign staff_count = staff_count | plus: 1 %}
+            {%- endif %}
+          {%- endfor %}
+        </dd>
+
+        <dt><strong>Course email</strong></dt>
+        <dd><a href="mailto:{{ page.email }}">{{ page.email }}</a></dd>
+
+        <dt><strong>Preliminary discussion</strong></dt>
+        <dd>{{ vorbesprechung.day }} {{ vorbesprechung.date }}, {{ vorbesprechung.time }}, {{ vorbesprechung.room }}</dd>
+
+        <dt><strong>Course catalog</strong></dt>
+        <dd><a href="{{ page.tiss }}">Official course listing in TISS</a> (194.148, {{ page.edition }})</dd>
+
+        <dt><strong>TUWEL</strong></dt>
+        <dd><a href="{{ page.tuwel }}">TUWEL course</a> &mdash; announcements, materials and submissions</dd>
+
+        <dt><strong>Institute</strong></dt>
+        <dd>{{ c.institute_code }} &mdash; <a href="https://informatics.tuwien.ac.at/orgs/e194">{{ c.institute_en }}</a></dd>
+      </dl>
+
+    </section>
+
+    <section id="registration">
+      <h2>Registration</h2>
+
+      <p>
+        <strong>Important!</strong> Registration for this course runs through
+        <a href="{{ page.tiss }}">TISS</a>, from
+        <strong>{{ c.registration.from }}</strong> until <strong>{{ c.registration.to }}</strong>
+        (strict deadline!).
+      </p>
+
+      <p>
+        All students registered in <a href="{{ page.tiss }}">TISS</a> until the deadline will have access to the course in
+        <a href="{{ page.tuwel }}">TUWEL</a>.<br>
+        <strong>Deregistration is possible until {{ c.registration.deregistration_until }}.</strong>
+      </p>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <p>
+          <strong>Mandatory prerequisite</strong> is the completion of the introductory and orientation phase (STEOP).
+          We kindly ask for your understanding that we cannot make exceptions here (exchange students excluded).
+        </p>
+        <p>Furthermore we expect:</p>
+        <ul>
+          <li>Object-oriented analysis, design and programming</li>
+          <li>Basics of the Unified Modeling Language (UML)</li>
+          <li>Basic knowledge of algorithms and data structures</li>
+          <li>Basic knowledge of database systems</li>
+          <li>Using a practical programming language and tools (e.g. Java or C++)</li>
+          <li>Applying an integrated development environment and source code management</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="timetable">
+      <h2>Timetable</h2>
+
+      <p>
+        The following table lists all important dates for the course (preliminary discussion,
+        entry test, tutor meetings, <em>Management Review</em>, deadlines).
+      </p>
+
+      <p>
+        If a deadline is listed on a certain date, assume it is due at 23:55 that day unless specified otherwise.
+      </p>
+
+      <section>
+        <h3>Lecture dates</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for d in c.dates %}
+            <tr>
+              <td>{{ d.day }} {{ d.date }}<br>{% if d.online_lecture %}See <a href="{{ page.tiss }}">TISS</a>{% else %}{{ d.time }}{% endif %}</td>
+              <td>{{ d.description }}</td>
+              <td>{% if d.online_lecture %}Zoom (Link in <a href="{{ page.tuwel }}">TUWEL</a>){% else %}{{ d.room }}{% endif %}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      {%- if c.exams %}
+      <section>
+        <h3>Bootcamp Examination slots</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for e in c.exams %}
+            <tr>
+              <td>{{ e.day }} {{ e.date }}<br>{{ e.time }}</td>
+              <td>{{ e.description }}</td>
+              <td>{{ e.room }}</td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </section>
+      {%- endif %}
+
+      <section>
+        <h3>Further milestones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" width="120">Date</th>
+              <th scope="col">Content</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="release">
+              <td>{{ c.registration.to }}</td>
+              <td>Registration deadline in <a href="{{ page.tiss }}">TISS</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Fri 09.10.2026<br>23:55</td>
+              <td><a href="{{ page.tuwel }}">TUWEL</a> Entry test</td>
+              <td>Must be passed positively</td>
+            </tr>
+            <tr>
+              <td>Fri 23.10.2026<br>23:55</td>
+              <td>Submission individual assignment</td>
+              <td>Final grading in submission interview</td>
+            </tr>
+            <tr>
+              <td>03.11.2026 - 06.11.2026</td>
+              <td>Group formation</td>
+              <td>Start of <em>Group Phase</em></td>
+            </tr>
+            <tr>
+              <td>13.11.2026<br>08:00</td>
+              <td>Deadline project proposal</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>13.11.2026</td>
+              <td>Online proposal presentations</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>16.11.2026 - 20.11.2026</td>
+              <td>Management Review 1</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>14.12.2026 - 18.12.2026</td>
+              <td>Management Review 2</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+            <tr>
+              <td>24.01.2027</td>
+              <td>Upload video</td>
+              <td>Mandatory ~5-minute presentation of your project</td>
+            </tr>
+            <tr>
+              <td>25.01.2027 - 28.01.2027</td>
+              <td>Management Review 3</td>
+              <td>Will be scheduled with your assistant</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="assignments">
+      <h2>Course Structure</h2>
+
+      <p>
+        The course consists of two phases that together amount to 400 points. Both phases must
+        be completed positively for a positive completion of the course.
+      </p>
+
+      <h3>Bootcamp (total: 100pts)</h3>
+      <p>
+        You work independently during the <em>Bootcamp</em>. The main objective of the <em>Bootcamp</em> is 
+        to teach you solid software engineering practices and to prepare you for the <em>Group Phase</em>.
+      </p>
+      <p>
+        The <em>Bootcamp</em> consists of:
+        <ul>
+          <li>Entry Test (5pts)</li>
+          <li>Individual Assignment (50pts)</li>
+          <li>Live Coding (45pts)</li>
+          <li>Submission Interview</li>
+        </ul>
+        The online lectures on 5, 6 and 7 October will be recorded. Details and recordings will be
+        available in <a href="{{ page.tuwel }}">TUWEL</a>.
+      </p>
+
+      <details>
+        <summary>Entry Test</summary>
+        <p>
+          The entry test will be a <a href="{{ page.tuwel }}">TUWEL</a> online test that can be repeated as often as you like until the
+          deadline on 9 October 2026 at 23:55. Students who have not passed the test by then will be removed from the course.
+          The test will cover software quality and evolution, and software design and architecture.
+        </p>
+      </details>
+
+      <details>
+        <summary>Individual Assignment</summary>
+        <p>
+          During the individual assignment, you will implement a web application using 
+          <a href="https://spring.io/projects/spring-boot">Spring Boot</a> and <a href="https://vuejs.org/">Vue.js</a>.
+          The assignment will be released on <a href="{{ page.tuwel }}">TUWEL</a> on 6 October 2026.
+        </p>
+        <p>
+          The assignment will be graded by a combination of <em>automated tests</em>, 
+          which will set your base grade, and a <em>submission interview</em>, where 
+          a tutor will look at your solution and ask you questions about it. The 
+          submission interview can alter your grade in either direction, and it is 
+          possible to get a negative grade even if you have passed the automated tests. The submission 
+          interview will take place directly after the <em>live coding</em>. 
+        </p>
+        <p>
+          During the assignment you will have the chance to ask questions and get help from 
+          the teaching staff in the <a href="{{ page.tuwel }}">TUWEL</a> forum and during tutor hours. Further, we will provide 
+          you with intermediate feedback on your progress. The timing will be announced on
+          <a href="{{ page.tuwel }}">TUWEL</a>. The
+          intermediate feedback will consist of a test report generated by the same automated tests 
+          that will be used for final grading. The intermediate feedback will not be graded, 
+          but will give you an impression on your progress and how to improve your solution. 
+        </p>
+        <p>
+          <strong>It is recommended to start the assignment early</strong> and to work on it continuously, 
+          as the assignment should not be underestimated and will likely require a significant 
+          amount of time to complete. Further, starting early ensures that you will get feedback 
+          more often.
+        </p>
+      </details>
+
+      <details>
+        <summary>Live Coding and Submission Interview</summary>
+        <p>
+          <strong>Make sure to register in <a href="{{ page.tuwel }}">TUWEL</a> for a live coding and interview slot!</strong>
+        </p>
+        <blockquote class="important">
+          To register for the live coding and submission interview, you will need to have <strong>at least 50%</strong> on the 
+          automated tests of the individual assignment. If you have not reached this threshold, you will not 
+          be able to register for a slot and will not be able to complete the <em>Bootcamp</em> positively.
+        </blockquote>
+        <p>
+          During your slot, you will start with a live coding exercise in class. The exercise will
+          consist of a small feature that extends a sample solution of the project from the individual 
+          assignment provided by us. You will have 45 minutes to complete the exercise.
+        </p>
+        <p>
+          After the live coding exercise, you will have a submission interview with a tutor. The tutor will
+          look at your live coding and individual assignment solution and ask you questions about both. The
+          interview will take about 30 minutes and will be used to determine your final grade for the <em>Bootcamp</em>.
+        </p>
+        <p>
+          The main focus of the interview will be to assess your understanding and ownership
+          of the project. As in real software projects, you are responsible for your solution and
+          should be able to explain your design choices, implementation details and the concepts
+          behind your solution. The tutor will further use the interview to assess your solutions adherence
+          to the technical guidelines and best practices taught in the course.
+        </p>
+      </details>
+
+
+      <h3>Group Phase (total: 300pts, per group member)</h3>
+      <p>
+        Your team develops a software project using agile practices, supervised by a tutor,
+        and presents progress in three <em>Management Review</em>. You will work on a project
+        of either your choice or a suggested topic which will be anounced in <a href="{{ page.tuwel }}">TUWEL</a>.
+      </p>
+
+      <details>
+        <summary>Group finding</summary>
+        <p>
+          After the live coding and submission interview, everyone who completed the <em>Bootcamp</em> positively
+          will have 3 days to submit group preferences in <a href="{{ page.tuwel }}">TUWEL</a>. You can use the group finding forum
+          in <a href="{{ page.tuwel }}">TUWEL</a> to find teammates and discuss project ideas. <strong>PLEASE NOTE: these are preferences.
+          We will try to accommodate them, but cannot guarantee that everyone will get their preferred 
+          teammates or project.</strong>
+        </p>
+      </details>
+
+      <details>
+        <summary>Project finding</summary>
+        <p>
+          After final group assignment, you will submit a project proposal on
+          <a href="{{ page.tuwel }}">TUWEL</a> by 13 November 2026 at 08:00.
+          This proposal can be based on our suggested topic or a project of your choice. The proposal
+          should contain a short description of the project (including its goals) and the features
+          you will implement, described as user stories.
+          You will present the proposal online on 13 November and receive feedback from the teaching staff.
+        </p>
+      </details>
+
+      <details>
+        <summary>Technologies</summary>
+        <p>
+          During the <em>Group Phase</em>, you must use Java with
+          <a href="https://spring.io/projects/spring-boot">Spring Boot</a> for the backend and
+          <a href="https://vuejs.org/">Vue.js</a> for the frontend, as in the <em>Bootcamp</em>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Development</summary>
+        <p>
+          Overall the development phase will last about 10 weeks which will be split into 4 sprints. 
+          During this time, you will have weekly meetings with your tutor. The development phase starts
+          after the first <em>Management Review</em> and ends with the final <em>Management Review</em>.
+        </p>
+      </details>
+
+      <details>
+        <summary>Group Phase Grading</summary>
+        <p>
+          While this is a group project, grading will happen for each individual student and continuously
+          throughout the <em>Group Phase</em>. Your grade consists of the following components:
+          <ul>
+            <li>Sprint Reviews (4x 40pts)</li>
+            <li>Technical Review (1x 40pts)</li>
+            <li>Overall Project Success (100pts)</li>
+          </ul>
+        </p>
+        <p>
+          <strong><em>Sprint Reviews</em></strong> are made by your tutor. For each sprint your tutor will
+          look at 1-2 merge requests per student and provide a grading recommendation based on the quality 
+          of your code, your adherence to the user story and technical guidelines as well as best practices 
+          taught in the course.
+        </p>
+        <p>
+          The <strong><em>Technical Review</em></strong> will be conducted by a different tutor than your own.
+          In the week before <em>Management Review 2</em> another tutor will look at one merge request for
+          each student and provide a grading recommendation based on the same criteria as the sprint reviews.
+        </p>
+        <p>
+          The <strong><em>Overall Project Success</em></strong> will be assessed by your assistant during the
+          final <em>Management Review</em>. The assessment will be based on the quality of your final product,
+          the mandatory video presentation, the completeness of your project and the overall success of your team.
+        </p>
+      </details>
+    </section>
+
+    <section id="grading">
+      <h2>Overall Grading</h2>
+
+      <p>
+        The grading consists of <strong>25&nbsp;% from the <em>Bootcamp</em></strong> and
+        <strong>75&nbsp;% from the <em>Group Phase</em></strong>.
+
+      <p>
+        <strong>Both phases must be completed positively (&#8805; 50%)</strong> for a positive completion of the course.
+      </p>
+
+      <p>The examination mode is <strong>continuous assessment</strong> (pr&uuml;fungsimmanent).</p>
+
+      <h3>Grading scale</h3>
+      <p>
+        All partial and final performances are graded on the same scale from 0 to 100 percent:
+        <ul>
+          <li>S1: 88%-100%</li>
+          <li>G2: 75%-87.99%</li>
+          <li>B3: 63%-74.99%</li>
+          <li>G4: 50%-62.99%</li>
+          <li>N5: 0%-49.99%</li>
+        </ul>
+
+        This results in the following point distribution for your final grade:
+        <ul>
+          <li>S1: 352-400pts</li>
+          <li>G2: 300-351.99pts</li>
+          <li>B3: 252-299.99pts</li>
+          <li>G4: 200-251.99pts</li>
+          <li>N5: 0-199.99pts</li>
+      </p>
+    </section>
