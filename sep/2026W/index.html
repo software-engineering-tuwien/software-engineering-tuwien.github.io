@@ -141,9 +141,9 @@ email: se-pr@se.tuwien.ac.at
           <tbody>
             {%- for d in c.dates %}
             <tr>
-              <td>{{ d.day }} {{ d.date }}<br>{{ d.time }}</td>
+              <td>{{ d.day }} {{ d.date }}<br>{% if d.online_lecture %}See <a href="{{ page.tiss }}">TISS</a>{% else %}{{ d.time }}{% endif %}</td>
               <td>{{ d.description }}</td>
-              <td>{{ d.room }}</td>
+              <td>{% if d.online_lecture %}Zoom (Link in <a href="{{ page.tuwel }}">TUWEL</a>){% else %}{{ d.room }}{% endif %}</td>
             </tr>
             {%- endfor %}
             <tr class="release">

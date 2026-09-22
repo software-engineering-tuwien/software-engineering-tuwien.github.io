@@ -67,20 +67,23 @@ dates:
     room: "Informatikhörsaal - ARCH-INF"
     description: "Kickoff"
   - day: "Mon"
-    time: "See TUWEL"
+    time: "See TISS"
     date: "05.10.2026"
-    room: "Online (details in TUWEL)"
-    description: "Online lecture (recorded): Software Quality and Evolution; Software Design and Architecture"
+    room: "Zoom (Link in TUWEL)"
+    description: "Software Quality and Evolution + Software Design and Architecture <em>(recorded) online lecture</em>"
+    online_lecture: true
   - day: "Tue"
-    time: "See TUWEL"
+    time: "See TISS"
     date: "06.10.2026"
-    room: "Online (details in TUWEL)"
-    description: "Online lecture (recorded): Crash Course: Spring Boot"
+    room: "Zoom (Link in TUWEL)"
+    description: 'Crash Course: <a href="https://spring.io/projects/spring-boot">Spring Boot</a> <em>(recorded) online lecture</em>'
+    online_lecture: true
   - day: "Wed"
-    time: "See TUWEL"
+    time: "See TISS"
     date: "07.10.2026"
-    room: "Online (details in TUWEL)"
-    description: "Online lecture (recorded): Vue.js; Responsible AI Use"
+    room: "Zoom (Link in TUWEL)"
+    description: 'Crash Course: <a href="https://vuejs.org/">Vue.js</a> + Responsible AI Use <em>(recorded) online lecture</em>'
+    online_lecture: true
   - day: "Fri"
     time: "14:00 - 17:00"
     date: "09.10.2026"
